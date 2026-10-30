@@ -18,7 +18,11 @@
         const image = esc(item.image || "");
         const title = esc(item.title || "Без названия");
         const alt = esc(item.alt || item.title || "");
-        return `<figure class="shot rv"><button type="button" data-full="${image}" data-alt="${alt}" aria-label="Открыть: ${title}"><img src="${image}" alt="${alt}" loading="lazy"><span class="cap">${title}</span></button></figure>`;
+        const details = [];
+        if (item.date) details.push(`<span><b>Дата съёмки</b>${esc(item.date)}</span>`);
+        if (item.location) details.push(`<span><b>Место съёмки</b>${esc(item.location)}</span>`);
+        const caption = esc([item.title || "", item.date ? `Дата съёмки: ${item.date}` : "", item.location ? `Место съёмки: ${item.location}` : ""].filter(Boolean).join(" · "));
+        return `<figure class="shot rv"><button type="button" data-full="${image}" data-alt="${alt}" data-caption="${caption}" aria-label="Открыть: ${title}"><img src="${image}" alt="${alt}" loading="lazy"><span class="cap">${title}</span></button>${details.length ? `<figcaption class="shot-meta">${details.join("")}</figcaption>` : ""}</figure>`;
       }).join("");
       gallery.dispatchEvent(new CustomEvent("gallery:updated", { bubbles: true }));
       gallery.querySelectorAll(".rv").forEach((el, index) => {

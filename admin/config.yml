@@ -1,11 +1,18 @@
+# Decap CMS — настройки лежат в admin/config.yml
+# Перед входом замени OWNER/REPOSITORY на GitHub-владельца и имя репозитория.
 backend:
-  name: turbo-github
-  turbo_site_id: 1d1db865-c1f4-42dd-9a35-fb1b91078193
+  name: github
+  repo: OWNER/REPOSITORY
   branch: main
+  # Для GitHub Pages понадобится OAuth-прокси. Инструкция — в CMS-README.md.
+  base_url: https://YOUR-OAUTH-PROXY
+  auth_endpoint: auth
+
 site_url: https://northling.space
 display_url: https://northling.space
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
+
 collections:
   - name: "galleries"
     label: "Галереи"
@@ -18,10 +25,11 @@ collections:
           - label: "Изображения"
             name: "items"
             widget: "list"
+            summary: "{{fields.title}}"
             fields:
               - { label: "Название", name: "title", widget: "string" }
               - { label: "Изображение", name: "image", widget: "image" }
-              - { label: "Описание", name: "alt", widget: "string", required: false }
+              - { label: "Описание для доступности (alt)", name: "alt", widget: "string", required: false }
       - name: "photos"
         label: "Фотки"
         file: "data/photos.json"
@@ -30,12 +38,13 @@ collections:
           - label: "Фотографии"
             name: "items"
             widget: "list"
+            summary: "{{fields.title}}"
             fields:
               - { label: "Название", name: "title", widget: "string" }
               - { label: "Фотография", name: "image", widget: "image" }
-              - { label: "Дата съёмки", name: "date", widget: "datetime", time_format: false, required: false }
+              - { label: "Дата съёмки", name: "date", widget: "string", required: false, hint: "Например: 12 октября 2025" }
               - { label: "Место съёмки", name: "location", widget: "string", required: false }
-              - { label: "Описание", name: "alt", widget: "string", required: false }
+              - { label: "Описание для доступности (alt)", name: "alt", widget: "string", required: false }
   - name: "music"
     label: "Музыка"
     files:
@@ -47,6 +56,7 @@ collections:
           - label: "Альбомы"
             name: "albums"
             widget: "list"
+            summary: "{{fields.title}} ({{fields.year}})"
             fields:
               - { label: "Название альбома", name: "title", widget: "string" }
               - { label: "Год", name: "year", widget: "string" }
@@ -55,3 +65,50 @@ collections:
                 name: "tracks"
                 widget: "list"
                 field: { label: "Название трека", name: "track", widget: "string" }
+          - label: "Концерты"
+            name: "live"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название (English)", name: "title", widget: "string" }
+              - { label: "Год", name: "year", widget: "string" }
+              - { label: "Место", name: "location", widget: "string" }
+              - { label: "Фотография", name: "image", widget: "image" }
+              - { label: "Описание для доступности (alt)", name: "alt", widget: "string", required: false }
+              - { label: "Текст", name: "description", widget: "text" }
+          - label: "B-Sides"
+            name: "b_sides"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название песни (English)", name: "title", widget: "string" }
+              - { label: "Период / метка", name: "era", widget: "string" }
+              - { label: "Короткое описание", name: "description", widget: "text" }
+          - label: "Редкие песни"
+            name: "deep_cuts"
+            widget: "list"
+            field: { label: "Название песни (English)", name: "title", widget: "string" }
+  - name: "site"
+    label: "Тексты и оформление сайта"
+    files:
+      - name: "site_content"
+        label: "Тексты сайта и обложка артбука"
+        file: "data/site.json"
+        format: "json"
+        fields:
+          - { label: "Главная — надпись", name: "home_wordmark", widget: "string" }
+          - { label: "Главная — приветствие", name: "home_greeting", widget: "string" }
+          - { label: "Арты — вступление", name: "arts_intro", widget: "text" }
+          - { label: "Арты — обложка артбука", name: "arts_cover", widget: "image" }
+          - { label: "Норт — имя", name: "north_name", widget: "string" }
+          - { label: "Норт — подпись", name: "north_subtitle", widget: "string" }
+          - { label: "Норт — описание", name: "north_description", widget: "text" }
+          - { label: "Ноэль — имя", name: "noel_name", widget: "string" }
+          - { label: "Ноэль — подпись", name: "noel_subtitle", widget: "string" }
+          - { label: "Ноэль — описание", name: "noel_description", widget: "text" }
+          - { label: "Фотки — вступление", name: "photos_intro", widget: "text" }
+          - { label: "Oasis — вступление", name: "oasis_intro", widget: "text" }
+          - { label: "Oasis — описание концертного архива", name: "oasis_live_intro", widget: "text" }
+          - { label: "Oasis — вступление B-Sides", name: "oasis_bside_intro", widget: "text" }
+          - { label: "Oasis — вступление The Deep Cuts", name: "oasis_deepcuts_intro", widget: "text" }
+          - { label: "webdev — вступление", name: "webdev_intro", widget: "text" }

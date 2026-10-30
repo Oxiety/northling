@@ -300,16 +300,116 @@ html{overflow-x:hidden}
 
 .oasis-page .frame{aspect-ratio:6/5}
 .oasis-page .frame img.oasis-band-image{object-position:center 40%}
-\n.oasis-editorial .cards{align-items:stretch}\n@media(max-width:760px){.oasis-editorial .cards{grid-template-columns:1fr}.theme-toggle{width:36px;height:36px}}\n
-:root{color-scheme:dark}
-html[data-theme="light"]{color-scheme:light;--bg:#f2f0eb;--bg2:#e8e5df;--panel:#fff;--text:#24232b;--soft:#514e58;--muted:#77727d;--line:rgba(35,32,42,.13);--line2:rgba(35,32,42,.22)}
-html[data-theme="light"] .bg{background:linear-gradient(160deg,#f7f5f0,var(--bg2) 60%,var(--bg))}
-html[data-theme="light"] .pill:before{background:rgba(248,246,241,.86)}
-.theme-toggle{display:grid;place-items:center;flex:none;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}
-.theme-toggle .i{width:18px;height:18px}
-.home-hero-grid{display:flex;justify-content:center;text-align:center}
-.home-hero-grid .hero-text{width:min(100%,760px)}
-.home-hero-grid .eyebrow{display:none}
-.home-hero-grid h1{font-size:clamp(3.5rem,12vw,8rem);letter-spacing:-.075em;margin:12px 0 14px}
-.home-hero-grid .lead{margin-inline:auto}
-@media(max-width:760px){.theme-toggle{width:36px;height:36px}.home-hero-grid h1{font-size:clamp(3rem,16vw,5.5rem)}}
+
+/* ——— requested refinements: home, editable profiles, themes and Oasis live archive ——— */
+.theme-toggle{position:relative;z-index:3;display:grid;place-items:center;flex:none;width:42px;height:42px;padding:0;border:1px solid var(--line2);border-radius:50%;background:rgba(255,255,255,.06);color:var(--text);font:600 22px/1 var(--body);cursor:pointer;transition:transform .25s var(--ease),background .25s,border-color .25s}
+.theme-toggle:hover{transform:rotate(-12deg);background:rgba(255,255,255,.13);border-color:var(--accent)}
+.theme-toggle:active{transform:scale(.94)}
+
+.home-hero{display:flex;align-items:center;min-height:min(660px,calc(100svh - 86px));padding:clamp(54px,9vw,118px) 0}
+.home-center{width:min(100%,960px);margin:auto;text-align:center}
+.home-wordmark{margin:0 0 24px;font:700 clamp(4.2rem,14vw,9.5rem)/.92 var(--display);letter-spacing:-.105em;overflow-wrap:anywhere}
+.home-welcome{margin:0 0 18px;color:var(--soft);font:600 clamp(1.25rem,3.3vw,2.2rem)/1.25 var(--display);letter-spacing:-.045em;text-wrap:balance}
+.home-welcome.long{font-size:clamp(1.05rem,2.6vw,1.7rem);line-height:1.35}
+.home-center .lead{max-width:660px;margin:0 auto}
+.home-center .again{margin-top:26px}
+
+/* Персонажи: закрытые по умолчанию раскрывающиеся карточки. */
+.char{display:block;padding:0}
+.character-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px 30px;list-style:none;cursor:pointer;user-select:none}
+.character-summary::-webkit-details-marker{display:none}
+.character-summary .top-row{margin:0;min-width:0}
+.char-expand{display:grid;place-items:center;flex:none;width:38px;height:38px;border:1px solid var(--line2);border-radius:50%;color:var(--accent);font:400 25px/1 var(--body);transition:transform .3s var(--ease),background .3s}
+.char[open] .char-expand{transform:rotate(45deg);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.char-content{padding:0 30px 30px;animation:fade .25s ease}
+.char-content>p{font-size:15px;line-height:1.7;margin:0}
+.char-content .stats{margin-top:22px}
+.char-content .tags{margin-top:18px}
+.char summary:focus-visible{outline-offset:-5px;border-radius:var(--r)}
+
+/* Дата и место съёмки под фотографией. */
+.shot-meta{display:flex;flex-wrap:wrap;gap:6px 14px;padding:12px 4px 4px;color:var(--muted);font:500 10px/1.5 var(--mono);letter-spacing:.015em}
+.shot-meta span{display:inline-flex;flex-wrap:wrap;gap:5px}
+.shot-meta b{color:var(--accent);font-weight:600}
+
+/* Oasis: более резкая типографика и живой фотоархив. */
+.oasis-page{--accent:#f05b69;--accent2:#a52f50;--blue:#25477e;--bg:#09090f;--bg2:#141525;--blob1:rgba(221,43,66,.34);--blob2:rgba(36,66,120,.48);--blob3:rgba(149,30,62,.25)}
+.oasis-page .oasis-hero h1{text-transform:uppercase;letter-spacing:-.085em;line-height:.91;font-size:clamp(2.7rem,7vw,5.8rem)}
+.oasis-page .oasis-hero .eyebrow{color:#ff8590}
+.oasis-page .oasis-hero .frame{border-radius:8px;transform:rotate(1.4deg)}
+.oasis-page .oasis-hero .frame:after{background:linear-gradient(180deg,transparent 52%,rgba(8,8,14,.58))}
+.oasis-page .marquee{border-color:rgba(240,91,105,.25);background:rgba(240,91,105,.045)}
+.oasis-page .marquee-group span{font-weight:600;color:var(--soft)}
+.oasis-page .section-head h2{letter-spacing:-.07em}
+.oasis-live{padding-top:clamp(54px,8vw,100px)}
+.concert-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.concert-card{grid-column:span 2;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.018));transition:transform .35s var(--ease),border-color .3s}
+.concert-card:nth-child(4),.concert-card:nth-child(5){grid-column:span 3}
+.concert-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
+.concert-card img{width:100%;height:clamp(170px,19vw,250px);object-fit:cover;filter:saturate(.82) contrast(1.05);transition:transform .7s var(--ease),filter .5s}
+.concert-card:hover img{transform:scale(1.035);filter:saturate(1.08) contrast(1.06)}
+.concert-copy{padding:21px 22px 24px}
+.concert-kicker{display:block;margin-bottom:10px;color:var(--accent);font:600 10px/1.4 var(--mono);letter-spacing:.14em}
+.concert-copy h3{font-size:clamp(18px,2vw,23px);margin-bottom:10px}
+.concert-copy p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+.bside-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.bside-card{min-height:180px;padding:23px;background:linear-gradient(145deg,rgba(240,91,105,.075),rgba(255,255,255,.018) 68%)}
+.bside-card h3{margin:17px 0 9px;font-size:clamp(17px,2vw,21px)}
+.bside-card p{font-size:13px}
+.bside-label{font:600 9px var(--mono);letter-spacing:.16em;color:var(--accent)}
+.oasis-deepcuts{padding-top:24px}
+.deepcut-list{display:flex;flex-wrap:wrap;gap:10px}
+.deepcut-list span{display:inline-flex;align-items:center;min-height:42px;padding:9px 15px;border:1px solid var(--line2);border-radius:3px;background:rgba(255,255,255,.025);color:var(--soft);font:500 11px/1.45 var(--mono);letter-spacing:.025em;transition:color .25s,border-color .25s,background .25s}
+.deepcut-list span:hover{color:var(--text);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+
+/* Светлая тема сохраняет акцентные цвета и контраст, не меняя структуру страниц. */
+html[data-theme="light"]{color-scheme:light;--bg:#f4f2f8;--bg2:#ebe9f3;--panel:#fff;--text:#191827;--muted:#656477;--soft:#373648;--line:rgba(31,27,55,.11);--line2:rgba(31,27,55,.2);--accent:#6756b7;--accent2:#8970c5;--blue:#49639d;--blob1:rgba(183,165,255,.22);--blob2:rgba(69,94,160,.16);--blob3:rgba(124,115,217,.15)}
+html[data-theme="light"] body{background:var(--bg);color:var(--text)}
+html[data-theme="light"] .bg{background:linear-gradient(160deg,#f7f5fb,var(--bg2) 60%,var(--bg))}
+html[data-theme="light"] .pill{box-shadow:0 10px 34px rgba(44,37,79,.1),inset 0 1px 0 rgba(255,255,255,.9)}
+html[data-theme="light"] .pill:before{background:rgba(255,255,255,.78)}
+html[data-theme="light"] nav a:hover,html[data-theme="light"] nav a:focus-visible{background:rgba(34,29,60,.06);color:var(--text)}
+html[data-theme="light"] nav a[aria-current=page]{background:rgba(34,29,60,.09);color:var(--text)}
+html[data-theme="light"] .theme-toggle{background:rgba(255,255,255,.78);border-color:var(--line2);color:var(--text)}
+html[data-theme="light"] .nav-toggle{background:rgba(255,255,255,.82);color:var(--text)}
+html[data-theme="light"] .btn{background:rgba(255,255,255,.78);color:var(--text);border-color:var(--line2)}
+html[data-theme="light"] .float-chip{background:rgba(255,255,255,.82);color:var(--text);box-shadow:0 12px 30px rgba(44,37,79,.12)}
+html[data-theme="light"] .card{background:linear-gradient(160deg,rgba(255,255,255,.96),rgba(255,255,255,.72));box-shadow:0 12px 34px rgba(42,35,72,.045)}
+html[data-theme="light"] .stat{background:rgba(35,30,64,.035)}
+html[data-theme="light"] .track{background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(255,255,255,.65))}
+html[data-theme="light"] .track:hover{background:linear-gradient(160deg,#fff,rgba(255,255,255,.8))}
+html[data-theme="light"] .toast{background:rgba(255,255,255,.94);box-shadow:0 12px 40px rgba(42,35,72,.13)}
+html[data-theme="light"] .concert-card{background:linear-gradient(160deg,rgba(255,255,255,.96),rgba(255,255,255,.72))}
+html[data-theme="light"] .deepcut-list span{background:rgba(255,255,255,.7)}
+html[data-theme="light"] .bside-card{background:linear-gradient(145deg,rgba(240,91,105,.08),rgba(255,255,255,.86) 68%)}
+html[data-theme="light"] .lb{background:rgba(20,18,34,.9)}
+html[data-theme="light"] .oasis-page{--accent:#c33f52;--accent2:#8f2949;--blue:#345a99;--blob1:rgba(221,43,66,.14);--blob2:rgba(36,66,120,.14);--blob3:rgba(149,30,62,.1)}
+html[data-theme="light"] .oasis-page .oasis-hero .eyebrow{color:#a92e43}
+html[data-theme="light"] .oasis-page .bside-card{background:linear-gradient(145deg,rgba(240,91,105,.11),rgba(255,255,255,.88) 68%)}
+
+@media(max-width:900px){
+  .concert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .concert-card,.concert-card:nth-child(4),.concert-card:nth-child(5){grid-column:span 1}
+  .bside-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .theme-toggle{width:40px;height:40px;margin-left:auto;margin-right:8px}
+  .nav-toggle{flex:none}
+  .home-hero{min-height:56svh;padding:62px 0 68px}
+  .home-wordmark{font-size:clamp(3.8rem,15vw,6.5rem);margin-bottom:22px}
+  .character-summary{padding:22px 20px}
+  .char-content{padding:0 20px 24px}
+  .concert-grid{grid-template-columns:1fr;gap:13px}
+  .concert-card img{height:clamp(190px,58vw,300px)}
+  .bside-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .bside-card{min-height:0;padding:18px}
+  .deepcut-list{gap:8px}
+  .deepcut-list span{font-size:10px;padding:8px 11px}
+  html[data-theme="light"] nav{background:rgba(246,244,250,.97)}
+}
+@media(max-width:560px){
+  .home-wordmark{font-size:clamp(3.35rem,15vw,5rem)}
+  .bside-grid{grid-template-columns:1fr}
+}
+
+html[data-theme="light"] .grad{background-image:linear-gradient(100deg,#302b42 0%,var(--accent) 52%,var(--accent2) 100%)}

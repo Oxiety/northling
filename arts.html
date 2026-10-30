@@ -14,7 +14,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Onest:wght@400..800&family=Unbounded:wght@400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+try { const saved = localStorage.getItem('northling-theme'); if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved; } catch (_) {}
+document.documentElement.classList.add('js');
+</script>
 </head>
 <body class="">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -41,8 +44,9 @@
 <div class="grain" aria-hidden="true"></div>
 <header class="top"><div class="wrap"><div class="pill">
 <a class="brand" href="index.html">northling<span>.</span></a>
+<nav id="menu" aria-label="Основная навигация"><a href="index.html">Главная</a><a href="arts.html" aria-current="page">Арты</a><a href="photos.html">Фотки</a><a href="oasis.html">Oasis</a><a href="webdev.html">webdev</a></nav>
+<button class="theme-toggle" type="button" aria-label="Переключить на светлую тему" aria-pressed="false" title="Переключить тему">☼</button>
 <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
-<nav id="menu" aria-label="Основная навигация"><a href="index.html">Главная</a><a href="arts.html" aria-current="page">Арты</a><a href="photos.html">Фотки</a><a href="oasis.html">Oasis</a><a href="webdev.html">webdev</a><button class="theme-toggle" type="button" aria-label="Переключить тему"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></button></nav>
 </div></div></header>
 <main>
 
@@ -50,34 +54,39 @@
 <div class="hero-text">
 <span class="eyebrow pillish">персонажи · визуальные истории</span>
 <h1>Личный<br><span class="grad">артбук.</span></h1>
-<p class="lead">Норт, Ноэль и арты без лишних объяснений.</p>
+<p class="lead" data-site-content="arts_intro">Норт, Ноэль и арты без лишних объяснений.</p>
 <p class="muted small">Персонажи мои. Арты тоже.</p>
 <div class="actions"><a class="btn primary" href="#gallery">В галерею <svg class="i " aria-hidden="true"><use href="#i-down"/></svg></a><a class="btn" href="#game">Сыграть <svg class="i " aria-hidden="true"><use href="#i-play"/></svg></a></div>
 </div>
 <div class="hero-visual">
-<div class="frame"><img src="img/snow.jpg" alt="Норт и Ноэль под снегом" style="object-position:50% 32%" fetchpriority="high"></div>
+<div class="frame"><img src="img/snow.jpg" data-site-image="arts_cover" alt="Норт и Ноэль под снегом" style="object-position:50% 32%" fetchpriority="high"></div>
 </div>
 </div></section>
 <div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="marquee-group"><span>northling</span><span>Норт</span><span>Ноэль</span><span>арты</span><span>britpop</span><span>90s rock</span><span>Oasis</span><span>webdev</span></div><div class="marquee-group"><span>northling</span><span>Норт</span><span>Ноэль</span><span>арты</span><span>britpop</span><span>90s rock</span><span>Oasis</span><span>webdev</span></div></div></div>
 <section class="sec"><div class="wrap">
 <div class="section-head"><div><span class="eyebrow">главные герои</span><h2>Норт и Ноэль</h2></div><p>Два персонажа, два характера и достаточно поводов друг друга подъёбывать.</p></div>
 <div class="chars">
-<article class="card char rv"><div class="top-row"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-cat"/></svg></span><div><h3>Норт</h3><p class="sub">Котолис · 19 лет</p></div></div>
-<p>Взрывной и весёлый. Шумный, резкий на подъём и местами полный хаос: скучно рядом с ним не бывает — по крайней мере, тихо точно не будет. И да, главный милашка этой пары.</p>
+<details class="card char rv">
+<summary class="character-summary"><div class="top-row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-cat"/></svg></span><div><h3 data-site-content="north_name">Норт</h3><p class="sub" data-site-content="north_subtitle">Котолис · 19 лет</p></div></div><span class="char-expand" aria-hidden="true">+</span></summary>
+<div class="char-content">
+<p data-site-content="north_description">Взрывной и весёлый. Шумный, резкий на подъём и местами полный хаос: скучно рядом с ним не бывает — по крайней мере, тихо точно не будет. И да, главный милашка этой пары.</p>
 <div class="stats"><div class="stat"><b>171</b><span>см</span></div><div class="stat"><b>19</b><span>лет</span></div><div class="stat"><b>100%</b><span>энергии</span></div></div>
-<div class="tags"><span class="tag">лавандовый</span><span class="tag">энергия</span><span class="tag">хаос</span><span class="tag">милашка</span></div></article>
-<article class="card char rv"><div class="top-row"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-snow"/></svg></span><div><h3>Ноэль</h3><p class="sub">Снежный барс · 19 лет</p></div></div>
-<p>Умнее, серьёзнее и взрослее. Чуть спокойнее и собраннее — обычно держит ситуацию под контролем, пока Норт не вмешался.</p>
+<div class="tags"><span class="tag">лавандовый</span><span class="tag">энергия</span><span class="tag">хаос</span><span class="tag">милашка</span></div>
+</div></details>
+<details class="card char rv">
+<summary class="character-summary"><div class="top-row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-snow"/></svg></span><div><h3 data-site-content="noel_name">Ноэль</h3><p class="sub" data-site-content="noel_subtitle">Снежный барс · 19 лет</p></div></div><span class="char-expand" aria-hidden="true">+</span></summary>
+<div class="char-content">
+<p data-site-content="noel_description">Умнее, серьёзнее и взрослее. Чуть спокойнее и собраннее — обычно держит ситуацию под контролем, пока Норт не вмешался.</p>
 <div class="stats"><div class="stat"><b>171</b><span>см</span></div><div class="stat"><b>19</b><span>лет</span></div><div class="stat"><b>100%</b><span>выдержки</span></div></div>
-<div class="tags"><span class="tag">снег</span><span class="tag">терпение</span><span class="tag">забота</span><span class="tag">ум</span></div></article>
+<div class="tags"><span class="tag">снег</span><span class="tag">терпение</span><span class="tag">забота</span><span class="tag">ум</span></div>
+</div></details>
 </div>
-<article class="card duo rv"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-heart"/></svg></span><div><h3>Их динамика</h3><p>Подколы, споры и совместный бардак. Ладят лучше, чем готовы признать, — и любят друг друга, просто каждый по-своему.</p></div></article>
-</div></section>
+<article class="card duo rv"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg></span><div><h3>Их динамика</h3><p>Подколы, споры и совместный бардак. Ладят лучше, чем готовы признать, — и любят друг друга, просто каждый по-своему.</p></div></article></div></section>
 <section class="sec" id="gallery"><div class="wrap">
 <div class="section-head"><div><span class="eyebrow">галерея</span><h2>Арты</h2></div><p>Иллюстрации и визуальные истории. Нажми на изображение, чтобы открыть его крупнее.</p></div>
 <div class="gallery" data-gallery="arts"><p class="muted small">Загружаем арты…</p></div>
 </div></section>
-<div class="lb" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр арта"> id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр арта">
+<div class="lb" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр арта">
 <button class="btn close" type="button" aria-label="Закрыть"><svg class="i " aria-hidden="true"><use href="#i-close"/></svg></button>
 <button class="btn prev" type="button" aria-label="Предыдущий арт"><svg class="i " aria-hidden="true"><use href="#i-prev"/></svg></button>
 <button class="btn next" type="button" aria-label="Следующий арт"><svg class="i " aria-hidden="true"><use href="#i-next"/></svg></button>
@@ -102,6 +111,7 @@
 </div></footer>
 <div class="toast" role="status" aria-live="polite"></div>
 <script src="js/gallery.js"></script>
+<script src="js/content.js"></script>
 <script src="js/main.js"></script>
 <script src="js/game.js"></script>
 </body></html>

@@ -4,17 +4,31 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine=matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-
+/* ——— переключение светлой/тёмной темы ——— */
 const themeButton=$('.theme-toggle');
 const applyTheme=theme=>{
- document.documentElement.dataset.theme=theme;
- try{localStorage.setItem('northling-theme',theme)}catch{}
- if(themeButton){themeButton.innerHTML=theme==='light'?'<svg class="i" aria-hidden="true"><use href="#i-sun"/></svg>':'<svg class="i" aria-hidden="true"><use href="#i-moon"/></svg>';}
+  const value=theme==='light'?'light':'dark';
+  document.documentElement.dataset.theme=value;
+  document.documentElement.style.colorScheme=value;
+  if(themeButton){
+    themeButton.textContent=value==='dark'?'☼':'☾';
+    themeButton.setAttribute('aria-label',value==='dark'?'Переключить на светлую тему':'Переключить на тёмную тему');
+    themeButton.setAttribute('aria-pressed',String(value==='light'));
+    themeButton.title=value==='dark'?'Светлая тема':'Тёмная тема';
+  }
+  const meta=$('meta[name="theme-color"]');
+  if(meta)meta.content=value==='light'?'#f4f2f8':'#090a12';
 };
-let savedTheme='dark';try{savedTheme=localStorage.getItem('northling-theme')||'dark'}catch{}
-applyTheme(savedTheme);
-if(themeButton)themeButton.addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='light'?'dark':'light'));
-\n/* ——— меню ——— */
+let initialTheme=document.documentElement.dataset.theme||'dark';
+try{const storedTheme=localStorage.getItem('northling-theme');if(storedTheme==='light'||storedTheme==='dark')initialTheme=storedTheme}catch{}
+applyTheme(initialTheme);
+if(themeButton)themeButton.addEventListener('click',()=>{
+  const next=document.documentElement.dataset.theme==='light'?'dark':'light';
+  applyTheme(next);
+  try{localStorage.setItem('northling-theme',next)}catch{}
+});
+
+/* ——— меню ——— */
 const toggle=$('.nav-toggle'),nav=$('nav');
 if(toggle&&nav){
   const set=open=>{
@@ -63,21 +77,6 @@ if(frame&&fine&&!reduce){
   box.addEventListener('pointerleave',()=>{frame.style.transform=''});
 }
 
-/* ——— приветствия ——— */
-const hello=$('#welcome');
-if(hello){
-  const list=['Привет. Я northling.','Кого сюда занесло? Добро пожаловать!','Hey, it’s me, it’s northling!','Заходит как-то на northling.space анон, а это вы.','Ну всё, вась, связь.','У нас тут есть печеньки, заходи!','Васап мабой!','WELCOME TO MY SPACE'];
-  let last=-1;
-  const show=()=>{
-    let i;do{i=Math.floor(Math.random()*list.length)}while(i===last&&list.length>1);
-    last=i;hello.textContent=list[i];
-    hello.classList.toggle('long',list[i].length>20);
-  };
-  show();
-  const again=$('#again');
-  if(again)again.addEventListener('click',show);
-}
-
 /* ——— копирование (Discord) ——— */
 const toast=$('.toast');let tt;
 const say=t=>{if(!toast)return;toast.textContent=t;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2200)};
@@ -110,7 +109,7 @@ if(lb){
     cur=(i+items.length)%items.length;
     const button=items[cur];
     img.src=button.dataset.full;img.alt=button.dataset.alt||'';
-    cap.textContent=button.dataset.alt||'';
+    cap.textContent=button.dataset.caption||button.dataset.alt||'';
   };
   const open=i=>{refresh();opener=items[i];show(i);lb.hidden=false;document.documentElement.classList.add('menu-open');$('.close',lb).focus()};
   const close=()=>{lb.hidden=true;img.removeAttribute('src');document.documentElement.classList.remove('menu-open');if(opener)opener.focus()};

@@ -14,7 +14,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Onest:wght@400..800&family=Unbounded:wght@400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+try { const saved = localStorage.getItem('northling-theme'); if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved; } catch (_) {}
+document.documentElement.classList.add('js');
+</script>
 </head>
 <body class="oasis-page">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -41,16 +44,17 @@
 <div class="grain" aria-hidden="true"></div>
 <header class="top"><div class="wrap"><div class="pill">
 <a class="brand" href="index.html">northling<span>.</span></a>
+<nav id="menu" aria-label="Основная навигация"><a href="index.html">Главная</a><a href="arts.html">Арты</a><a href="photos.html">Фотки</a><a href="oasis.html" aria-current="page">Oasis</a><a href="webdev.html">webdev</a></nav>
+<button class="theme-toggle" type="button" aria-label="Переключить на светлую тему" aria-pressed="false" title="Переключить тему">☼</button>
 <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
-<nav id="menu" aria-label="Основная навигация"><a href="index.html">Главная</a><a href="arts.html">Арты</a><a href="photos.html">Фотки</a><a href="oasis.html" aria-current="page">Oasis</a><a href="webdev.html">webdev</a><button class="theme-toggle" type="button" aria-label="Переключить тему"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></button></nav>
 </div></div></header>
 <main>
 
 <section class="hero oasis-hero"><div class="wrap hero-grid">
 <div class="hero-text">
-<span class="eyebrow pillish">Manchester · 1990s · britpop</span>
-<h1>Definitely<br><span class="grad">Oasis.</span></h1>
-<p class="lead">Я фанат Oasis и хочу поделиться с вами этой группой: её музыкой, альбомами и песнями, к которым хочется возвращаться.</p>
+<span class="eyebrow pillish">Manchester · Creation Records · 1994–2009</span>
+<h1>LOUD GUITARS.<br>BIG MOUTHS.<br><span class="grad">Oasis.</span></h1>
+<p class="lead" data-site-content="oasis_intro">Я фанат Oasis и хочу поделиться с вами этой группой: её музыкой, альбомами и песнями, к которым хочется возвращаться.</p>
 <div class="actions"><a class="btn primary" href="#albums">Дискография <svg class="i " aria-hidden="true"><use href="#i-down"/></svg></a><a class="btn" href="#listen">Слушать <svg class="i " aria-hidden="true"><use href="#i-play"/></svg></a></div>
 </div>
 <div class="hero-visual">
@@ -58,7 +62,7 @@
 <span class="float-chip a"><svg class="i " aria-hidden="true"><use href="#i-note"/></svg> 1991–2009</span>
 </div>
 </div></section>
-<div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="marquee-group"><span>northling</span><span>Норт</span><span>Ноэль</span><span>арты</span><span>britpop</span><span>90s rock</span><span>Oasis</span><span>webdev</span></div><div class="marquee-group"><span>northling</span><span>Норт</span><span>Ноэль</span><span>арты</span><span>britpop</span><span>90s rock</span><span>Oasis</span><span>webdev</span></div></div></div>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="marquee-group"><span>Oasis</span><span>Manchester</span><span>Creation Records</span><span>Britpop</span><span>Definitely Maybe</span><span>Live Forever</span><span>Supersonic</span><span>Mad for it</span></div><div class="marquee-group"><span>Oasis</span><span>Manchester</span><span>Creation Records</span><span>Britpop</span><span>Definitely Maybe</span><span>Live Forever</span><span>Supersonic</span><span>Mad for it</span></div></div></div>
 <section class="sec"><div class="wrap">
 <div class="section-head"><div><span class="eyebrow">Manchester · 1991–2009</span><h2>Oasis</h2></div></div>
 <div class="cards">
@@ -66,6 +70,11 @@
 <article class="card rv"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-spark"/></svg></span><h3>Характер</h3><p>Манчестерская самоуверенность, британская язвительность и умение не извиняться за собственный вкус.</p></article>
 <article class="card rv"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-moon"/></svg></span><h3>Настроение</h3><p>Ностальгия, ночные поездки, огни города и музыка, которую хочется подпевать во весь голос.</p></article>
 </div></div></section>
+
+<section class="sec oasis-live" id="live-archive"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">LIVE ARCHIVE</span><h2>Big nights.<br>Big noise.</h2></div><p data-site-content="oasis_live_intro">Пять больших вечеров из разных глав истории группы — от домашнего Manchester до позднего выступления в The Roundhouse.</p></div>
+<div class="concert-grid" id="oasisLiveArchive"><p class="muted small">Загружаем концертный архив…</p></div></div></section>
+
 <section class="sec" id="albums"><div class="wrap">
 <div class="section-head"><div><span class="eyebrow">дискография · 1994–2008</span><h2>Студийные альбомы</h2></div><p>Семь студийных альбомов Oasis — с короткими заметками и треклистами.</p></div>
 <div class="album-grid" id="oasisAlbums"><p class="muted small">Загружаем дискографию…</p></div>
@@ -74,36 +83,24 @@
 <div class="section-head"><div><span class="eyebrow">песни</span><h2>Песни</h2></div></div>
 <div class="cards"><article class="card song rv"><span class="num">01</span><h3>Live Forever</h3><p>Светлая, упрямая и почти неуязвимая по настроению.</p></article><article class="card song rv"><span class="num">02</span><h3>Supersonic</h3><p>Дебютная дерзость и гитары, которые не собираются извиняться.</p></article><article class="card song rv"><span class="num">03</span><h3>Don't Look Back in Anger</h3><p>Припев, который словно уже принадлежит целой толпе.</p></article><article class="card song rv"><span class="num">04</span><h3>Champagne Supernova</h3><p>Длинная музыкальная дымка для позднего вечера.</p></article><article class="card song rv"><span class="num">05</span><h3>Slide Away</h3><p>Романтика, громкость и эмоциональный размах.</p></article><article class="card song rv"><span class="num">06</span><h3>Some Might Say</h3><p>Золотая середина между мелодией и рок-н-ролльной наглостью.</p></article></div>
 </div></section>
+
+<section class="sec oasis-b-sides"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">BEYOND THE ALBUMS</span><h2>B-Sides</h2></div><p data-site-content="oasis_bside_intro">Песни с синглов и дополнительных релизов: не менее интересная сторона каталога Oasis.</p></div>
+<div class="bside-grid" id="oasisBSides"><p class="muted small">Загружаем подборку B-sides…</p></div>
+</div></section>
+<section class="sec oasis-deepcuts"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">FOR THE CURIOUS</span><h2>The Deep Cuts</h2></div><p data-site-content="oasis_deepcuts_intro">Редкие и неочевидные названия. Без сюжетных подсказок и длинных объяснений — лучше включить и услышать самому.</p></div>
+<div class="deepcut-list" id="oasisDeepCuts"><p class="muted small">Загружаем редкие песни…</p></div>
+</div></section>
+
 <section class="sec" id="listen"><div class="wrap">
 <div class="section-head"><div><span class="eyebrow">ссылки</span><h2>Слушать</h2></div></div>
 <div class="cards">
-<a class="card rv" href="https://music.apple.com/tr/playlist/oasis/pl.u-38oWZ6esZPxK14J" target="_blank" rel="noopener noreferrer"><svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-play"/></svg></span><h3>Oasis playlist</h3><p>Плейлист Oasis в Apple Music.</p></a>
+<a class="card rv" href="https://music.apple.com/library/playlist/p.PkxV8JvhV2g18AY" target="_blank" rel="noopener noreferrer"><svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-play"/></svg></span><h3>My Apple Music Playlist</h3><p>Мой плейлист, составленный в Apple Music.</p></a>
 <a class="card rv" href="https://music.apple.com/tr/playlist/britpop-90s-rock/pl.u-9N9L2GyIyxpLDJP" target="_blank" rel="noopener noreferrer"><svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-play"/></svg></span><h3>Britpop + 90s rock</h3><p>Британские гитары и соседние музыкальные миры.</p></a>
 <article class="card rv"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-heart"/></svg></span><h3>Мой подход</h3><p>Слушать альбомами, переслушивать любимые треки и не стесняться громкости.</p></article>
 </div></div></section>
 
-<section class="sec oasis-editorial" id="live"><div class="wrap">
-<div class="section-head"><div><span class="eyebrow">легендарные вечера</span><h2>Когда Oasis <span class="grad">гремели</span> на сцене</h2></div><p>Пять заметных концертов в истории группы.</p></div>
-<div class="cards">
-<article class="card rv"><span class="tag">1996 · Hertfordshire</span><h3>Knebworth Park</h3><p>Два августовских вечера перед огромной аудиторией стали символом пика бритпоп-лихорадки и масштаба Oasis.</p></article>
-<article class="card rv"><span class="tag">1996 · Manchester</span><h3>Maine Road</h3><p>Два концерта на стадионе Manchester City — возвращение группы в родной город на вершине популярности.</p></article>
-<article class="card rv"><span class="tag">1995 · London</span><h3>Earls Court</h3><p>Два больших декабрьских выступления, когда Oasis уже стали одной из главных групп Великобритании.</p></article>
-<article class="card rv"><span class="tag">2000 · London</span><h3>Wembley Stadium</h3><p>Два стадионных шоу в июле 2000 года, во времена Standing on the Shoulder of Giants.</p></article>
-<article class="card rv"><span class="tag">1994 · Glastonbury</span><h3>Glastonbury Festival</h3><p>Раннее выступление на большой фестивальной сцене — важная точка в стремительном взлёте группы.</p></article>
-</div></div></section>
-<section class="sec oasis-editorial" id="deep-cuts"><div class="wrap">
-<div class="section-head"><div><span class="eyebrow">за пределами хитов</span><h2>B-sides &amp; <span class="grad">deep cuts</span></h2></div><p>Параллельная сторона каталога Oasis — песни, которые заслуживают отдельного разговора.</p></div>
-<div class="cards">
-<article class="card rv"><span class="tag">B-side · 1994</span><h3>Listen Up</h3><p>Одна из ранних композиций, которую поклонники часто ставят рядом с материалом дебютного альбома.</p></article>
-<article class="card rv"><span class="tag">B-side · 1995</span><h3>Acquiesce</h3><p>Композиция, ставшая самостоятельной концертной классикой и любимым дополнением к эпохе Morning Glory.</p></article>
-<article class="card rv"><span class="tag">B-side · 1995</span><h3>The Masterplan</h3><p>Масштабная песня Ноэла, со временем получившая почти альбомный статус среди слушателей.</p></article>
-<article class="card rv"><span class="tag">B-side · 1995</span><h3>Talk Tonight</h3><p>Камерная акустическая сторона группы — без необходимости разбирать её до последней строчки.</p></article>
-<article class="card rv"><span class="tag">B-side · 1996</span><h3>Going Nowhere</h3><p>Меланхоличная композиция с характерным мелодическим почерком Ноэла.</p></article>
-<article class="card rv"><span class="tag">B-side · 1994</span><h3>It's Good to Be Free</h3><p>Непринуждённая ранняя вещь с ощущением свободы и лёгкой небрежности.</p></article>
-</div></div></section>
-<section class="sec"><div class="wrap card rv"><span class="eyebrow">мой плейлист</span><h2>Oasis — <span class="grad">мой выбор</span></h2>
-<p>В подборке 144 композиции, которые мне нравятся: Oasis, Noel Gallagher’s High Flying Birds, Beady Eye, сольный Liam Gallagher и другие связанные проекты. Это личная коллекция, а не строгая дискография.</p>
-<div class="actions"><a class="btn primary" href="https://music.apple.com/tr/playlist/oasis/pl.u-38oWZ6esZPxK14J" target="_blank" rel="noopener noreferrer">Открыть плейлист Apple Music</a></div></div></section>
 </main>
 <footer class="footer"><div class="wrap footrow">
 <div><div class="footbrand">northling<span>.</span></div><p>Личный сайт northling.</p><p>Собрано с помощью CODEX, вайб-кодинга и ручной доводки.</p></div>
@@ -111,6 +108,7 @@
 </div></footer>
 <div class="toast" role="status" aria-live="polite"></div>
 <script src="js/oasis.js"></script>
+<script src="js/content.js"></script>
 <script src="js/main.js"></script>
 
 </body></html>

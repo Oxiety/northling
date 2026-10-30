@@ -127,5 +127,90 @@
         "Soldier On"
       ]
     }
+  ],
+  "live": [
+    {
+      "title": "Knebworth 1996",
+      "year": "1996",
+      "location": "Hertfordshire",
+      "image": "img/knebworth.jpg",
+      "alt": "Liam Gallagher на сцене во время Knebworth 1996",
+      "description": "Два вечера, ощущение огромного общего хора и момент, когда Oasis стали больше самой сцены."
+    },
+    {
+      "title": "Maine Road",
+      "year": "1996",
+      "location": "Manchester",
+      "image": "img/maineroad.jpg",
+      "alt": "Oasis выступают перед большой аудиторией на Maine Road",
+      "description": "Домашняя территория. Manchester, ревущие трибуны и группа на своём поле — буквально и по духу."
+    },
+    {
+      "title": "Earl's Court",
+      "year": "1995",
+      "location": "London",
+      "image": "img/earlscourt.png",
+      "alt": "Oasis у здания Earl's Court",
+      "description": "Лондонская глава раннего пика: плотный звук, большая арена и та самая уверенность середины девяностых."
+    },
+    {
+      "title": "Wembley 2000",
+      "year": "2000",
+      "location": "London",
+      "image": "img/wembley.jpg",
+      "alt": "Oasis на сцене в период Wembley 2000",
+      "description": "Уже другой масштаб и другой век, но всё ещё стадионный Oasis. Эта эпоха осталась на Familiar to Millions."
+    },
+    {
+      "title": "iTunes Festival 2009",
+      "year": "2009",
+      "location": "The Roundhouse, London",
+      "image": "img/itunesfestival2009.jpg",
+      "alt": "Oasis выступают на iTunes Festival 2009",
+      "description": "Поздний Oasis — и Slide Away в сет-листе вечера. Один из тех моментов, ради которых хочется переслушать запись целиком."
+    }
+  ],
+  "b_sides": [
+    {
+      "title": "Listen Up",
+      "era": "EARLY YEARS",
+      "description": "Длинная гитарная прогулка с ранним, необработанным характером группы."
+    },
+    {
+      "title": "Talk Tonight",
+      "era": "ACOUSTIC SIDE",
+      "description": "Тихий, личный контраст к привычной громкости Oasis."
+    },
+    {
+      "title": "Cloudburst",
+      "era": "1994",
+      "description": "Ранний разгон — прямой, шероховатый и очень гитарный."
+    },
+    {
+      "title": "Rockin' Chair",
+      "era": "1995",
+      "description": "Неспешная сторона группы, которую легко оставить на повторе."
+    },
+    {
+      "title": "Fade Away",
+      "era": "1995",
+      "description": "Сырой заряд середины девяностых без лишней полировки."
+    },
+    {
+      "title": "The Fame",
+      "era": "1997–1998",
+      "description": "Гитарная вещь с чуть более странным, почти психоделическим оттенком."
+    }
+  ],
+  "deep_cuts": [
+    "Let's All Make Believe",
+    "Idler's Dream",
+    "One Way Road",
+    "Those Swollen Hand Blues",
+    "The Quiet Ones",
+    "Pass Me Down the Wine",
+    "(As Long As They've Got) Cigarettes in Hell",
+    "Thank You for the Good Times",
+    "Just Getting Older"
   ]
 }

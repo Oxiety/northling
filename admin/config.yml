@@ -1,0 +1,67 @@
+
+backend:
+  name: turbo-github
+  turbo_site_id: 1d1db865-c1f4-42dd-9a35-fb1b91078193
+  branch: main
+
+site_url: https://northling.space
+display_url: https://northling.space
+
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "galleries"
+    label: "Галереи"
+    files:
+      - name: "arts"
+        label: "Арты"
+        file: "data/arts.json"
+        format: "json"
+        fields:
+          - label: "Изображения"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Изображение", name: "image", widget: "image" }
+              - { label: "Описание", name: "alt", widget: "string", required: false }
+
+      - name: "photos"
+        label: "Фотки"
+        file: "data/photos.json"
+        format: "json"
+        fields:
+          - label: "Фотографии"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Фотография", name: "image", widget: "image" }
+              - { label: "Описание", name: "alt", widget: "string", required: false }
+
+  - name: "music"
+    label: "Музыка"
+    files:
+      - name: "oasis"
+        label: "Oasis — альбомы и треклисты"
+        file: "data/oasis.json"
+        format: "json"
+        fields:
+          - label: "Альбомы"
+            name: "albums"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.year}})"
+            fields:
+              - { label: "Название альбома", name: "title", widget: "string" }
+              - { label: "Год", name: "year", widget: "string" }
+              - { label: "Описание", name: "description", widget: "text" }
+              - label: "Треклист"
+                name: "tracks"
+                widget: "list"
+                field:
+                  label: "Название трека"
+                  name: "track"
+                  widget: "string"

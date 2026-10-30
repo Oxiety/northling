@@ -413,3 +413,164 @@ html[data-theme="light"] .oasis-page .bside-card{background:linear-gradient(145d
 }
 
 html[data-theme="light"] .grad{background-image:linear-gradient(100deg,#302b42 0%,var(--accent) 52%,var(--accent2) 100%)}
+
+/* ——— главная: лавандовые приветствия и переливающийся wordmark ——— */
+.home-wordmark{
+  display:inline-block;
+  color:#fff;
+  background-image:linear-gradient(112deg,#fff 0%,#f4f0ff 22%,#c9baff 48%,#f0eaff 74%,#fff 100%);
+  background-size:240% 100%;
+  background-position:0% 50%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 34px rgba(190,169,255,.12);
+  transform-origin:50% 58%;
+  will-change:background-position,transform;
+  animation:home-wordmark-shimmer 8s ease-in-out infinite,home-wordmark-float 5.5s ease-in-out infinite;
+}
+@keyframes home-wordmark-shimmer{
+  0%,100%{background-position:0% 50%;filter:drop-shadow(0 0 9px rgba(205,190,255,.08))}
+  50%{background-position:100% 50%;filter:drop-shadow(0 0 22px rgba(183,165,255,.25))}
+}
+@keyframes home-wordmark-float{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(0,-5px,0) scale(1.012)}
+}
+.home-welcome{
+  max-width:min(100%,900px);
+  margin:0 auto 12px;
+  color:#bba7ff;
+  font-size:clamp(1.2rem,3.3vw,2.2rem);
+  line-height:1.28;
+  text-wrap:balance;
+  overflow-wrap:anywhere;
+  transition:font-size .2s ease,color .2s ease;
+}
+.home-welcome.long{font-size:clamp(1.08rem,2.8vw,1.8rem);line-height:1.34}
+.home-welcome.very-long{font-size:clamp(1rem,2.35vw,1.55rem);line-height:1.4}
+.home-reroll{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  margin-top:15px;
+  padding:9px 15px;
+  border:1px solid rgba(183,165,255,.28);
+  border-radius:999px;
+  background:rgba(183,165,255,.07);
+  color:#c8b9ff;
+  font:500 11px/1.3 var(--mono);
+  letter-spacing:.045em;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .22s var(--ease),background .22s,border-color .22s,box-shadow .22s;
+}
+.home-reroll:hover{transform:translateY(-2px);background:rgba(183,165,255,.13);border-color:rgba(183,165,255,.56);box-shadow:0 8px 28px rgba(142,119,220,.12)}
+.home-reroll:active{transform:translateY(0) scale(.97)}
+.home-reroll:focus-visible{outline:2px solid #bba7ff;outline-offset:4px}
+
+/* ——— webdev: отдельная Matrix-палитра без влияния на остальные страницы ——— */
+.webdev-page{
+  --accent:#72ff91;
+  --accent2:#19c75b;
+  --blue:#087c3d;
+  --bg:#030906;
+  --bg2:#06150b;
+  --panel:#0a1b10;
+  --text:#e4ffeb;
+  --muted:#83a98d;
+  --soft:#bce9c5;
+  --line:rgba(89,255,131,.13);
+  --line2:rgba(89,255,131,.28);
+  --blob1:rgba(34,197,94,.2);
+  --blob2:rgba(11,115,54,.3);
+  --blob3:rgba(69,255,125,.12);
+}
+.webdev-page .bg{background:linear-gradient(160deg,#020604,#06150b 58%,#030906)}
+.webdev-page .bg:after{
+  content:"01001101 10100110 01001010 11010010 00101101 10110100 01001011 01101001 10010110 01001101 10100110 01001010 11010010 00101101 10110100 01001011 01101001";
+  position:absolute;
+  inset:-8% -12%;
+  overflow:hidden;
+  color:rgba(91,255,132,.23);
+  font:500 clamp(10px,1.15vw,15px)/3.1 var(--mono);
+  letter-spacing:.9em;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  opacity:.38;
+  transform:rotate(-9deg) scale(1.12);
+  pointer-events:none;
+  mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+}
+.webdev-page .bg i:nth-child(1){background:radial-gradient(circle,rgba(29,202,91,.26),transparent 64%)}
+.webdev-page .bg i:nth-child(2){background:radial-gradient(circle,rgba(8,124,61,.28),transparent 64%)}
+.webdev-page .bg i:nth-child(3){background:radial-gradient(circle,rgba(85,255,133,.13),transparent 64%)}
+.webdev-page .pill{border-color:rgba(100,255,140,.18);box-shadow:0 10px 40px rgba(0,0,0,.48),inset 0 1px 0 rgba(104,255,143,.08)}
+.webdev-page .pill:before{background:rgba(3,15,7,.78)}
+.webdev-page .brand span{color:var(--accent)}
+.webdev-page nav a:hover,.webdev-page nav a:focus-visible{background:rgba(90,255,133,.1);color:#e4ffeb}
+.webdev-page nav a[aria-current=page]{background:rgba(90,255,133,.14);color:#d6ffe0}
+.webdev-page .theme-toggle,.webdev-page .nav-toggle{border-color:rgba(103,255,142,.25);color:var(--accent);background:rgba(60,255,119,.06)}
+.webdev-page .theme-toggle:hover{border-color:var(--accent);background:rgba(60,255,119,.13);box-shadow:0 0 22px rgba(49,255,112,.12)}
+.webdev-page .eyebrow,.webdev-page .status,.webdev-page .tag{color:var(--accent)}
+.webdev-page h1,.webdev-page h2,.webdev-page h3{text-shadow:0 0 26px rgba(72,255,123,.08)}
+.webdev-page .grad{background-image:linear-gradient(100deg,#e4ffeb 0%,#72ff91 48%,#19c75b 100%)}
+.webdev-page .lead{color:#a8d8b4}
+.webdev-page .project{
+  position:relative;
+  border-color:rgba(89,255,131,.24);
+  background:linear-gradient(125deg,rgba(16,65,32,.55),rgba(5,23,11,.8) 62%,rgba(8,49,23,.5));
+  box-shadow:0 22px 70px rgba(0,0,0,.28),inset 0 0 36px rgba(44,255,106,.035);
+}
+.webdev-page .project:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.7}
+.webdev-page .project h3{color:#d8ffe1;font-family:var(--mono);letter-spacing:-.07em}
+.webdev-page .status{border-color:rgba(114,255,145,.34);background:rgba(33,197,87,.09)}
+.webdev-page .status:before{box-shadow:0 0 12px rgba(114,255,145,.8)}
+.webdev-page .tag{border-color:rgba(114,255,145,.2);background:rgba(38,202,88,.07)}
+.webdev-page .btn.primary{color:#031008;border-color:rgba(164,255,185,.6);background:linear-gradient(135deg,#a4ffb6,#37e878 60%,#11ae4d);box-shadow:0 8px 30px rgba(37,213,91,.22),inset 0 1px 0 rgba(255,255,255,.55)}
+.webdev-page .btn.primary:hover{box-shadow:0 12px 42px rgba(37,213,91,.34),inset 0 1px 0 rgba(255,255,255,.62)}
+.webdev-page .ghost-card{border-color:rgba(114,255,145,.3);color:#81b991;background:rgba(15,78,35,.09)}
+.webdev-page .footer{border-color:rgba(89,255,131,.14)}
+.webdev-page .footbrand{color:#dfffe6}
+.webdev-page .footbrand span{color:var(--accent)}
+.webdev-page .toast{border-color:rgba(114,255,145,.35)}
+html[data-theme="light"] .webdev-page{
+  --accent:#087d35;--accent2:#20a653;--blue:#0a6430;
+  --bg:#eff8f0;--bg2:#e2f2e6;--panel:#f7fff8;
+  --text:#102d19;--muted:#53765b;--soft:#294d32;
+  --line:rgba(13,102,45,.13);--line2:rgba(13,102,45,.25);
+  --blob1:rgba(34,197,94,.13);--blob2:rgba(11,115,54,.11);--blob3:rgba(69,255,125,.1);
+}
+html[data-theme="light"] .webdev-page .bg{background:linear-gradient(160deg,#f8fff9,#e6f5e9 58%,#eff8f0)}
+html[data-theme="light"] .webdev-page .bg:after{color:rgba(8,125,53,.14)}
+html[data-theme="light"] .webdev-page .pill:before{background:rgba(250,255,251,.86)}
+html[data-theme="light"] .webdev-page nav a:hover,html[data-theme="light"] .webdev-page nav a:focus-visible{color:#102d19}
+html[data-theme="light"] .webdev-page nav a[aria-current=page]{color:#102d19}
+html[data-theme="light"] .webdev-page .lead{color:#41694a}
+html[data-theme="light"] .webdev-page .project{border-color:rgba(13,102,45,.2);background:linear-gradient(125deg,rgba(217,247,224,.9),rgba(247,255,248,.96) 62%,rgba(221,249,228,.8));box-shadow:0 18px 55px rgba(17,83,37,.08),inset 0 0 28px rgba(44,170,79,.045)}
+html[data-theme="light"] .webdev-page .project h3{color:#164c27}
+html[data-theme="light"] .webdev-page .ghost-card{color:#497552;background:rgba(43,164,76,.05)}
+html[data-theme="light"] .webdev-page .footbrand{color:#164c27}
+
+@media(max-width:760px){
+  .home-center{padding-inline:4px}
+  .home-wordmark{font-size:clamp(2.7rem,14vw,6rem);margin-bottom:19px;letter-spacing:-.105em}
+  .home-welcome{max-width:34ch;padding-inline:4px;font-size:clamp(1.12rem,5vw,1.6rem)}
+  .home-welcome.long{font-size:clamp(1rem,4.2vw,1.4rem)}
+  .home-welcome.very-long{font-size:clamp(.94rem,3.8vw,1.25rem)}
+  .home-reroll{margin-top:13px;padding-inline:14px}
+  .webdev-page .project{grid-template-columns:1fr;gap:22px;padding:clamp(22px,6vw,32px)}
+  .webdev-page .project>.btn{width:100%;min-height:48px}
+  .webdev-page .bg:after{font-size:11px;letter-spacing:.5em;opacity:.23}
+}
+@media(max-width:380px){
+  .home-wordmark{font-size:clamp(2.45rem,13vw,3.2rem)}
+  .home-welcome{font-size:1.08rem}
+  .home-welcome.long{font-size:1rem}
+  .home-welcome.very-long{font-size:.94rem}
+  .home-reroll{font-size:10px;letter-spacing:.025em}
+}
+@media(prefers-reduced-motion:reduce){
+  .home-wordmark{animation:none;background-position:50% 50%;transform:none}
+}

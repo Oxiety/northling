@@ -4,6 +4,34 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine=matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+/* ——— случайные приветствия на главной ——— */
+const greetings=[
+  'Привет. Я northling.',
+  'Кого сюда занесло? Добро пожаловать!',
+  'Hey, it’s me, it’s northling!',
+  'Заходит как-то на northling.space анон, а это вы.',
+  'Ну всё, вась, связь.',
+  'У нас тут есть печеньки, заходи!',
+  'Васап мабой!',
+  'Welcome to my space!'
+];
+const welcome=$('#welcome');
+const rerollButton=$('#greeting-reroll');
+if(welcome){
+  let previousGreeting=-1;
+  const rerollGreeting=()=>{
+    let next=Math.floor(Math.random()*greetings.length);
+    if(greetings.length>1){while(next===previousGreeting)next=Math.floor(Math.random()*greetings.length)}
+    previousGreeting=next;
+    const message=greetings[next];
+    welcome.textContent=message;
+    welcome.classList.toggle('long',message.length>30);
+    welcome.classList.toggle('very-long',message.length>43);
+  };
+  rerollGreeting();
+  if(rerollButton)rerollButton.addEventListener('click',rerollGreeting);
+}
+
 /* ——— переключение светлой/тёмной темы ——— */
 const themeButton=$('.theme-toggle');
 const applyTheme=theme=>{
@@ -17,7 +45,7 @@ const applyTheme=theme=>{
     themeButton.title=value==='dark'?'Светлая тема':'Тёмная тема';
   }
   const meta=$('meta[name="theme-color"]');
-  if(meta)meta.content=value==='light'?'#f4f2f8':'#090a12';
+  if(meta){const isWebdev=document.body&&document.body.classList.contains('webdev-page');meta.content=isWebdev?(value==='light'?'#eff8f0':'#030806'):(value==='light'?'#f4f2f8':'#090a12')}
 };
 let initialTheme=document.documentElement.dataset.theme||'dark';
 try{const storedTheme=localStorage.getItem('northling-theme');if(storedTheme==='light'||storedTheme==='dark')initialTheme=storedTheme}catch{}

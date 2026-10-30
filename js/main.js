@@ -82,19 +82,28 @@ $$('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{
   say('Скопировано: '+v);
 }));
 
-/* ——— лайтбокс с листанием ——— */
+/* ——— лайтбокс с листанием, включая галереи, загруженные из CMS ——— */
 const lb=$('#lightbox');
 if(lb){
-  const img=$('img',lb),cap=$('figcaption',lb),items=$$('[data-full]');
-  let cur=0,opener=null;
-  const show=i=>{
-    cur=(i+items.length)%items.length;
-    const b=items[cur];
-    img.src=b.dataset.full;img.alt=b.dataset.alt||'';cap.textContent=b.dataset.alt||'';
+  const img=$('img',lb),cap=$('figcaption',lb);
+  let items=[],cur=0,opener=null,sx=null;
+  const refresh=()=>{
+    items=$$('[data-full]');
+    items.forEach((button,i)=>{
+      if(button.dataset.lightboxBound)return;
+      button.dataset.lightboxBound='true';
+      button.addEventListener('click',()=>open(i));
+    });
   };
-  const open=i=>{opener=items[i];show(i);lb.hidden=false;document.documentElement.classList.add('menu-open');$('.close',lb).focus()};
+  const show=i=>{
+    if(!items.length)return;
+    cur=(i+items.length)%items.length;
+    const button=items[cur];
+    img.src=button.dataset.full;img.alt=button.dataset.alt||'';
+    cap.textContent=button.dataset.alt||'';
+  };
+  const open=i=>{refresh();opener=items[i];show(i);lb.hidden=false;document.documentElement.classList.add('menu-open');$('.close',lb).focus()};
   const close=()=>{lb.hidden=true;img.removeAttribute('src');document.documentElement.classList.remove('menu-open');if(opener)opener.focus()};
-  items.forEach((b,i)=>b.addEventListener('click',()=>open(i)));
   $('.close',lb).addEventListener('click',close);
   $('.prev',lb).addEventListener('click',()=>show(cur-1));
   $('.next',lb).addEventListener('click',()=>show(cur+1));
@@ -104,17 +113,18 @@ if(lb){
     if(e.key==='Escape')close();
     if(e.key==='ArrowLeft')show(cur-1);
     if(e.key==='ArrowRight')show(cur+1);
-    if(e.key==='Tab'){ // фокус остаётся внутри окна
-      const f=$$('button',lb),a=f[0],z=f[f.length-1];
-      if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}
-      else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+    if(e.key==='Tab'){
+      const f=$$('button',lb),first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
     }
   });
-  let sx=null;
   lb.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
   lb.addEventListener('touchend',e=>{
     if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;sx=null;
     if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));
   });
+  refresh();
+  document.addEventListener('gallery:updated',refresh);
 }
 })();

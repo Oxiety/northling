@@ -4,7 +4,17 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine=matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-/* ——— меню ——— */
+
+const themeButton=$('.theme-toggle');
+const applyTheme=theme=>{
+ document.documentElement.dataset.theme=theme;
+ try{localStorage.setItem('northling-theme',theme)}catch{}
+ if(themeButton){themeButton.innerHTML=theme==='light'?'<svg class="i" aria-hidden="true"><use href="#i-sun"/></svg>':'<svg class="i" aria-hidden="true"><use href="#i-moon"/></svg>';}
+};
+let savedTheme='dark';try{savedTheme=localStorage.getItem('northling-theme')||'dark'}catch{}
+applyTheme(savedTheme);
+if(themeButton)themeButton.addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='light'?'dark':'light'));
+\n/* ——— меню ——— */
 const toggle=$('.nav-toggle'),nav=$('nav');
 if(toggle&&nav){
   const set=open=>{

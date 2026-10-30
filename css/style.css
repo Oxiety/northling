@@ -574,3 +574,24 @@ html[data-theme="light"] .webdev-page .footbrand{color:#164c27}
 @media(prefers-reduced-motion:reduce){
   .home-wordmark{animation:none;background-position:50% 50%;transform:none}
 }
+
+
+/* Последние точечные правки интерфейса */
+.home-reroll{min-height:28px;margin-top:8px;padding:5px 10px;opacity:.56;border-color:rgba(183,165,255,.18);background:rgba(183,165,255,.025);font-size:9px;letter-spacing:.025em;box-shadow:none}
+.home-reroll:hover{opacity:.95;transform:translateY(-1px);background:rgba(183,165,255,.09);border-color:rgba(183,165,255,.38);box-shadow:0 4px 14px rgba(142,119,220,.08)}
+.oasis-hero .oasis-display{font-size:clamp(2.25rem,5.05vw,4.05rem);line-height:.99;letter-spacing:-.065em;overflow-wrap:normal;word-break:normal;max-width:100%}
+.oasis-hero .hero-text{min-width:0;max-width:100%}
+.oasis-hero .hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.oasis-page .marquee-track{width:max-content;will-change:transform;animation:marquee 30s linear infinite}
+.oasis-page .marquee-group{width:max-content}
+.contact-discord .ico{color:#5865F2;border-color:rgba(88,101,242,.35);background:rgba(88,101,242,.10)}
+.contact-telegram .ico{color:#29B6F6;border-color:rgba(41,182,246,.32);background:rgba(41,182,246,.09)}
+.contact-email .ico{color:#3B82F6;border-color:rgba(59,130,246,.32);background:rgba(59,130,246,.09)}
+.contact-channel .ico{color:#FF9F43;border-color:rgba(255,159,67,.34);background:rgba(255,159,67,.10)}
+.bento .b-web:before{background:radial-gradient(circle at 100% 100%,rgba(25,199,91,.34),transparent 62%),radial-gradient(circle at 10% 0%,rgba(114,255,145,.10),transparent 50%)}
+.bento .b-web .ico{color:#72ff91;border-color:rgba(114,255,145,.35);background:linear-gradient(145deg,rgba(25,199,91,.22),rgba(255,255,255,.02))}
+.bug-report{margin:0 0 8px;padding:10px 17px;font-size:12px}
+.footer .right .bug-report{color:var(--text)}
+.album-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px;margin:0 0 18px;border:1px solid var(--line)}
+@media(max-width:760px){.oasis-hero .hero-grid{grid-template-columns:1fr}.oasis-hero .oasis-display{font-size:clamp(1.7rem,8.4vw,3.4rem);line-height:1.04}.oasis-hero .hero-visual{width:min(100%,420px)}}
+@media(prefers-reduced-motion:reduce){.oasis-page .marquee-track{animation-duration:90s}}

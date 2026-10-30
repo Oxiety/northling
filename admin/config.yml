@@ -1,4 +1,3 @@
-
 backend:
   name: turbo-github
   turbo_site_id: 1d1db865-c1f4-42dd-9a35-fb1b91078193
@@ -15,53 +14,192 @@ collections:
     label: "Галереи"
     files:
       - name: "arts"
-        label: "Арты"
+        label: "Арты — галерея"
         file: "data/arts.json"
         format: "json"
         fields:
-          - label: "Изображения"
+          - label: "Все арты"
             name: "items"
             widget: "list"
             summary: "{{fields.title}}"
             fields:
               - { label: "Название", name: "title", widget: "string" }
-              - { label: "Изображение", name: "image", widget: "image" }
-              - { label: "Описание", name: "alt", widget: "string", required: false }
+              - { label: "Титульное изображение / арт", name: "image", widget: "image" }
+              - { label: "Описание и alt-текст", name: "alt", widget: "string", required: false }
+              - { label: "Дата создания", name: "date", widget: "string", required: false }
+              - { label: "Место / контекст", name: "location", widget: "string", required: false }
+              - { label: "Подпись", name: "caption", widget: "string", required: false }
 
       - name: "photos"
-        label: "Фотки"
+        label: "Фотки — галерея"
         file: "data/photos.json"
         format: "json"
         fields:
-          - label: "Фотографии"
+          - label: "Все фотографии"
             name: "items"
             widget: "list"
             summary: "{{fields.title}}"
             fields:
               - { label: "Название", name: "title", widget: "string" }
               - { label: "Фотография", name: "image", widget: "image" }
-              - { label: "Описание", name: "alt", widget: "string", required: false }
+              - { label: "Описание и alt-текст", name: "alt", widget: "string", required: false }
+              - { label: "Дата съёмки", name: "date", widget: "string", required: false }
+              - { label: "Место съёмки", name: "location", widget: "string", required: false }
+              - { label: "Подпись", name: "caption", widget: "string", required: false }
+
+  - name: "page-settings"
+    label: "Страницы — заголовки и обложки"
+    files:
+      - name: "site-content"
+        label: "Тексты, заголовки и титульные фотографии"
+        file: "data/site.json"
+        format: "json"
+        fields:
+          - { label: "Логотип главной", name: "home_wordmark", widget: "string", required: false }
+          - { label: "Описание webdev", name: "webdev_intro", widget: "text", required: false }
+          - { label: "Имя Норта", name: "north_name", widget: "string", required: false }
+          - { label: "Подзаголовок Норта", name: "north_subtitle", widget: "string", required: false }
+          - { label: "Описание Норта", name: "north_description", widget: "text", required: false }
+          - { label: "Имя Ноэля", name: "noel_name", widget: "string", required: false }
+          - { label: "Подзаголовок Ноэля", name: "noel_subtitle", widget: "string", required: false }
+          - { label: "Описание Ноэля", name: "noel_description", widget: "text", required: false }
+          - { label: "Рост Норта", name: "north_height", widget: "string", required: false }
+          - { label: "Возраст Норта", name: "north_age", widget: "string", required: false }
+          - { label: "Подпись характеристики Норта", name: "north_stat_label", widget: "string", required: false }
+          - { label: "Тег Норта 1", name: "north_tag_1", widget: "string", required: false }
+          - { label: "Тег Норта 2", name: "north_tag_2", widget: "string", required: false }
+          - { label: "Тег Норта 3", name: "north_tag_3", widget: "string", required: false }
+          - { label: "Тег Норта 4", name: "north_tag_4", widget: "string", required: false }
+          - { label: "Рост Ноэля", name: "noel_height", widget: "string", required: false }
+          - { label: "Возраст Ноэля", name: "noel_age", widget: "string", required: false }
+          - { label: "Подпись характеристики Ноэля", name: "noel_stat_label", widget: "string", required: false }
+          - { label: "Тег Ноэля 1", name: "noel_tag_1", widget: "string", required: false }
+          - { label: "Тег Ноэля 2", name: "noel_tag_2", widget: "string", required: false }
+          - { label: "Тег Ноэля 3", name: "noel_tag_3", widget: "string", required: false }
+          - { label: "Тег Ноэля 4", name: "noel_tag_4", widget: "string", required: false }
+          - { label: "Описание блока персонажей", name: "arts_characters_intro", widget: "text", required: false }
+          - { label: "Заголовок блока динамики", name: "arts_duo_title", widget: "string", required: false }
+          - { label: "Текст блока динамики", name: "arts_duo_text", widget: "text", required: false }
+          - { label: "Подзаголовок мини-игры", name: "arts_game_eyebrow", widget: "string", required: false }
+          - { label: "Заголовок мини-игры", name: "arts_game_title", widget: "string", required: false }
+          - { label: "Описание мини-игры", name: "arts_game_intro", widget: "text", required: false }
+          - { label: "Подзаголовок галереи Арты", name: "arts_gallery_eyebrow", widget: "string", required: false }
+          - { label: "Подзаголовок галереи Фотки", name: "photos_gallery_eyebrow", widget: "string", required: false }
+          - { label: "Обложка раздела Арты", name: "arts_cover", widget: "image" }
+          - { label: "Описание обложки Арты", name: "arts_cover_alt", widget: "string", required: false }
+          - { label: "Обложка раздела Фотки", name: "photos_cover", widget: "image" }
+          - { label: "Описание обложки Фотки", name: "photos_cover_alt", widget: "string", required: false }
+          - { label: "Обложка раздела Oasis", name: "oasis_cover", widget: "image" }
+          - { label: "Описание обложки Oasis", name: "oasis_cover_alt", widget: "string", required: false }
+          - { label: "Подзаголовок Арты", name: "arts_eyebrow", widget: "string", required: false }
+          - { label: "Заголовок Арты — первая строка", name: "arts_title", widget: "string", required: false }
+          - { label: "Заголовок Арты — акцент", name: "arts_title_accent", widget: "string", required: false }
+          - { label: "Вводный текст Арты", name: "arts_intro", widget: "text", required: false }
+          - { label: "Подпись под заголовком Арты", name: "arts_note", widget: "string", required: false }
+          - { label: "Заголовок галереи Арты", name: "arts_gallery_title", widget: "string", required: false }
+          - { label: "Описание галереи Арты", name: "arts_gallery_intro", widget: "text", required: false }
+          - { label: "Подзаголовок Фотки", name: "photos_eyebrow", widget: "string", required: false }
+          - { label: "Заголовок Фотки — первая часть", name: "photos_title_prefix", widget: "string", required: false }
+          - { label: "Заголовок Фотки — акцент", name: "photos_title_accent", widget: "string", required: false }
+          - { label: "Вводный текст Фотки", name: "photos_intro", widget: "text", required: false }
+          - { label: "Подпись под заголовком Фотки", name: "photos_note", widget: "string", required: false }
+          - { label: "Заголовок галереи Фотки", name: "photos_gallery_title", widget: "string", required: false }
+          - { label: "Описание галереи Фотки", name: "photos_gallery_intro", widget: "text", required: false }
+          - { label: "Подзаголовок Oasis", name: "oasis_hero_eyebrow", widget: "string", required: false }
+          - { label: "Oasis — заголовок строка 1", name: "oasis_hero_title_line1", widget: "string", required: false }
+          - { label: "Oasis — заголовок строка 2", name: "oasis_hero_title_line2", widget: "string", required: false }
+          - { label: "Oasis — заголовок низ", name: "oasis_hero_title_bottom", widget: "string", required: false }
+          - { label: "Вводный текст Oasis", name: "oasis_intro", widget: "text", required: false }
+          - { label: "Подзаголовок обзорного блока Oasis", name: "oasis_overview_eyebrow", widget: "string", required: false }
+          - { label: "Заголовок обзорного блока Oasis", name: "oasis_overview_title", widget: "string", required: false }
+          - { label: "Подзаголовок LIVE", name: "oasis_live_eyebrow", widget: "string", required: false }
+          - { label: "Заголовок LIVE", name: "oasis_live_title", widget: "string", required: false }
+          - { label: "Описание LIVE", name: "oasis_live_intro", widget: "text", required: false }
+          - { label: "Заголовок дискографии", name: "oasis_album_title", widget: "string", required: false }
+          - { label: "Подзаголовок дискографии", name: "oasis_album_eyebrow", widget: "string", required: false }
+          - { label: "Описание дискографии", name: "oasis_album_intro", widget: "text", required: false }
+          - { label: "Подзаголовок песен", name: "oasis_songs_eyebrow", widget: "string", required: false }
+          - { label: "Заголовок песен", name: "oasis_songs_title", widget: "string", required: false }
+          - { label: "Подзаголовок B-Sides", name: "oasis_bside_eyebrow", widget: "string", required: false }
+          - { label: "Подзаголовок Алмазики", name: "oasis_deepcuts_eyebrow", widget: "string", required: false }
+          - { label: "Подзаголовок блока ссылок", name: "oasis_listen_eyebrow", widget: "string", required: false }
+          - { label: "Заголовок B-Sides", name: "oasis_bside_title", widget: "string", required: false }
+          - { label: "Описание B-Sides", name: "oasis_bside_intro", widget: "text", required: false }
+          - { label: "Заголовок Алмазики", name: "oasis_deepcuts_title", widget: "string", required: false }
+          - { label: "Описание Алмазики", name: "oasis_deepcuts_intro", widget: "text", required: false }
+          - { label: "Заголовок блока ссылок", name: "oasis_listen_title", widget: "string", required: false }
+          - { label: "Название плейлиста", name: "oasis_playlist_title", widget: "string", required: false }
+          - { label: "Описание плейлиста", name: "oasis_playlist_text", widget: "text", required: false }
+          - { label: "Название Britpop-плейлиста", name: "oasis_britpop_title", widget: "string", required: false }
+          - { label: "Описание Britpop-плейлиста", name: "oasis_britpop_text", widget: "text", required: false }
+          - { label: "Заголовок личного подхода", name: "oasis_approach_title", widget: "string", required: false }
+          - { label: "Текст личного подхода", name: "oasis_approach_text", widget: "text", required: false }
+          - { label: "Текст на карточке Арты на главной", name: "home_arts_card", widget: "text", required: false }
+          - { label: "Текст на карточке Oasis на главной", name: "home_oasis_card", widget: "text", required: false }
+          - { label: "Текст на карточке webdev на главной", name: "home_webdev_card", widget: "text", required: false }
+          - { label: "Бегущая строка Арты (слова через |)", name: "arts_marquee", widget: "string", required: false }
+          - { label: "Бегущая строка Фотки (слова через |)", name: "photos_marquee", widget: "string", required: false }
+          - { label: "Бегущая строка Oasis (слова через |)", name: "oasis_marquee", widget: "string", required: false }
 
   - name: "music"
-    label: "Музыка"
+    label: "Oasis — всё содержимое"
     files:
       - name: "oasis"
-        label: "Oasis — альбомы и треклисты"
+        label: "Oasis — концерты, альбомы, песни и подборки"
         file: "data/oasis.json"
         format: "json"
         fields:
-          - label: "Альбомы"
+          - label: "Информационные карточки"
+            name: "highlights"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Текст", name: "description", widget: "text" }
+              - label: "Иконка"
+                name: "icon"
+                widget: "select"
+                options: ["note", "spark", "moon"]
+          - label: "Избранные песни"
+            name: "songs"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название песни", name: "title", widget: "string" }
+              - { label: "Описание", name: "description", widget: "text" }
+          - label: "Концерты и выступления"
+            name: "live"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название концерта", name: "title", widget: "string" }
+              - { label: "Год", name: "year", widget: "string" }
+              - { label: "Город / площадка", name: "location", widget: "string" }
+              - { label: "Фотография концерта", name: "image", widget: "image" }
+              - { label: "Описание фотографии", name: "alt", widget: "string", required: false }
+              - { label: "Описание концерта", name: "description", widget: "text" }
+          - label: "Студийные альбомы"
             name: "albums"
             widget: "list"
             summary: "{{fields.title}} ({{fields.year}})"
             fields:
               - { label: "Название альбома", name: "title", widget: "string" }
               - { label: "Год", name: "year", widget: "string" }
+              - { label: "Обложка альбома (необязательно)", name: "cover", widget: "image", required: false }
               - { label: "Описание", name: "description", widget: "text" }
               - label: "Треклист"
                 name: "tracks"
                 widget: "list"
-                field:
-                  label: "Название трека"
-                  name: "track"
-                  widget: "string"
+                field: { label: "Название трека", name: "track", widget: "string" }
+          - label: "B-Sides"
+            name: "b_sides"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Эпоха / год", name: "era", widget: "string" }
+              - { label: "Описание", name: "description", widget: "text" }
+          - label: "Алмазики — редкие песни"
+            name: "deep_cuts"
+            widget: "list"
+            field: { label: "Название песни", widget: "string" }

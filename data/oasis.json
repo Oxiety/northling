@@ -212,5 +212,48 @@
     "(As Long As They've Got) Cigarettes in Hell",
     "Thank You for the Good Times",
     "Just Getting Older"
+  ],
+  "highlights": [
+    {
+      "title": "Звук",
+      "description": "Плотные гитары, прямой ритм, мелодичные припевы и чувство масштаба даже в камерной песне.",
+      "icon": "note"
+    },
+    {
+      "title": "Характер",
+      "description": "Манчестерская самоуверенность, британская язвительность и умение не извиняться за собственный вкус.",
+      "icon": "spark"
+    },
+    {
+      "title": "Настроение",
+      "description": "Ностальгия, ночные поездки, огни города и музыка, которую хочется подпевать во весь голос.",
+      "icon": "moon"
+    }
+  ],
+  "songs": [
+    {
+      "title": "Live Forever",
+      "description": "Светлая, упрямая и почти неуязвимая по настроению."
+    },
+    {
+      "title": "Supersonic",
+      "description": "Дебютная дерзость и гитары, которые не собираются извиняться."
+    },
+    {
+      "title": "Don't Look Back in Anger",
+      "description": "Припев, который словно уже принадлежит целой толпе."
+    },
+    {
+      "title": "Champagne Supernova",
+      "description": "Длинная музыкальная дымка для позднего вечера."
+    },
+    {
+      "title": "Slide Away",
+      "description": "Романтика, громкость и эмоциональный размах."
+    },
+    {
+      "title": "Some Might Say",
+      "description": "Золотая середина между мелодией и рок-н-ролльной наглостью."
+    }
   ]
 }

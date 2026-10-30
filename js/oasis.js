@@ -4,7 +4,9 @@
   const liveTarget = document.getElementById("oasisLiveArchive");
   const bsideTarget = document.getElementById("oasisBSides");
   const deepTarget = document.getElementById("oasisDeepCuts");
-  if (!target && !liveTarget && !bsideTarget && !deepTarget) return;
+  const highlightsTarget = document.getElementById("oasisHighlights");
+  const songsTarget = document.getElementById("oasisSongs");
+  if (!target && !liveTarget && !bsideTarget && !deepTarget && !highlightsTarget && !songsTarget) return;
   const esc = (value) => String(value ?? "").replace(/[&<>"']/g, ch => ({
     "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
   }[ch]));
@@ -15,6 +17,17 @@
       return response.json();
     })
     .then(data => {
+      if (highlightsTarget) {
+        const icons = {note:"i-note", spark:"i-spark", moon:"i-moon"};
+        const items = Array.isArray(data.highlights) ? data.highlights : [];
+        highlightsTarget.innerHTML = items.map(item => `<article class="card rv"><span class="ico"><svg class="i" aria-hidden="true"><use href="#${icons[item.icon] || "i-spark"}"/></svg></span><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></article>`).join("");
+        reveal(highlightsTarget);
+      }
+      if (songsTarget) {
+        const songs = Array.isArray(data.songs) ? data.songs : [];
+        songsTarget.innerHTML = songs.map((song,index) => `<article class="card song rv"><span class="num">${String(index+1).padStart(2,"0")}</span><h3>${esc(song.title)}</h3><p>${esc(song.description)}</p></article>`).join("");
+        reveal(songsTarget);
+      }
       if (target) {
         const albums = Array.isArray(data.albums) ? data.albums : [];
         if (!albums.length) {
@@ -23,6 +36,7 @@
           target.innerHTML = albums.map((album, index) => {
             const tracks = Array.isArray(album.tracks) ? album.tracks : [];
             return `<article class="card album-card rv">
+              ${album.cover ? `<img class="album-cover" src="${esc(album.cover)}" alt="Обложка ${esc(album.title)}" loading="lazy">` : ""}
               <div class="album-meta"><span class="n">${String(index + 1).padStart(2, "0")}</span><span class="album-year">${esc(album.year)}</span></div>
               <h3>${esc(album.title)}</h3>
               <p class="album-description">${esc(album.description)}</p>
@@ -51,7 +65,7 @@
       }
     })
     .catch(error => {
-      [target, liveTarget, bsideTarget, deepTarget].filter(Boolean).forEach(node => {
+      [target, liveTarget, bsideTarget, deepTarget, highlightsTarget, songsTarget].filter(Boolean).forEach(node => {
         node.innerHTML = '<p class="gallery-empty">Не получилось загрузить данные Oasis. Проверь data/oasis.json.</p>';
       });
       console.error(error);

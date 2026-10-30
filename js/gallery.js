@@ -19,9 +19,11 @@
         const title = esc(item.title || "Без названия");
         const alt = esc(item.alt || item.title || "");
         const details = [];
-        if (item.date) details.push(`<span><b>Дата съёмки</b>${esc(item.date)}</span>`);
-        if (item.location) details.push(`<span><b>Место съёмки</b>${esc(item.location)}</span>`);
-        const caption = esc([item.title || "", item.date ? `Дата съёмки: ${item.date}` : "", item.location ? `Место съёмки: ${item.location}` : ""].filter(Boolean).join(" · "));
+        const dateLabel = type === "arts" ? "Дата создания" : "Дата съёмки";
+        const placeLabel = type === "arts" ? "Место / контекст" : "Место съёмки";
+        if (item.date) details.push(`<span><b>${dateLabel}</b>${esc(item.date)}</span>`);
+        if (item.location) details.push(`<span><b>${placeLabel}</b>${esc(item.location)}</span>`);
+        const caption = esc(item.caption || [item.title || "", item.date ? `${dateLabel}: ${item.date}` : "", item.location ? `${placeLabel}: ${item.location}` : ""].filter(Boolean).join(" · "));
         return `<figure class="shot rv"><button type="button" data-full="${image}" data-alt="${alt}" data-caption="${caption}" aria-label="Открыть: ${title}"><img src="${image}" alt="${alt}" loading="lazy"><span class="cap">${title}</span></button>${details.length ? `<figcaption class="shot-meta">${details.join("")}</figcaption>` : ""}</figure>`;
       }).join("");
       gallery.dispatchEvent(new CustomEvent("gallery:updated", { bubbles: true }));

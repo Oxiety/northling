@@ -1,65 +1,111 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090a12"><meta name="description" content="Арты — личный сайт northling."><title>Арты · northling</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
-:root{--bg:#090a12;--panel:#121522;--panel2:#191d2e;--text:#f4f4fb;--muted:#a3a8bc;--line:#ffffff19;--accent:#b7a5ff;--accent2:#7c73d9;--display:'Manrope',sans-serif;--body:'Inter',sans-serif;--mono:'Inter',sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--body);overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 12% 0%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 40%),radial-gradient(ellipse at 90% 45%,#454a9130,transparent 36%),linear-gradient(145deg,#080910,#0d1020 60%,#090a12);transition:background 1s}body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:30;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
-a{color:inherit}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}.top{position:sticky;top:0;z-index:20;background:#090a12d9;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.navrow{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:700 21px var(--display);text-decoration:none;letter-spacing:-1px}.brand span,.accent{color:var(--accent)}nav{display:flex;gap:5px;align-items:center;flex-wrap:wrap}nav a{font:10px var(--mono);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:9px 12px;border:1px solid transparent;border-radius:999px;transition:.25s}nav a:hover,nav a:focus-visible,nav a[aria-current=page]{color:var(--text);border-color:var(--line);background:#ffffff0b}
-main{min-height:68vh}.hero{padding:clamp(75px,11vw,130px) 0 95px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}.eyebrow{font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}h1,h2,h3,p{margin-top:0}h1{font:700 clamp(3.7rem,10vw,8rem)/.94 var(--display);letter-spacing:-.085em;margin:16px 0 25px}h2{font:600 clamp(2.3rem,5vw,4.2rem)/1.02 var(--display);letter-spacing:-.065em;margin:10px 0 20px}h3{font:650 24px var(--display);letter-spacing:-.04em}.lead{font-size:clamp(17px,2vw,20px);color:#d6d8e8;max-width:580px}.muted{color:var(--muted)}.small{font-size:13px}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border:1px solid #ffffff24;border-radius:13px;padding:12px 18px;font-size:13px;font-weight:800;cursor:pointer;color:var(--text);background:linear-gradient(145deg,#252a40,#151827);box-shadow:inset 1px 1px 1px #ffffff20,inset -2px -2px 4px #0007,0 5px 0 #05060b,0 9px 20px #0003;transition:transform .2s,box-shadow .2s,filter .2s}.btn:hover{transform:translateY(-3px);filter:brightness(1.12);box-shadow:inset 1px 1px 1px #ffffff25,0 8px 0 #05060b,0 15px 25px #0005}.btn:active{transform:translateY(2px);box-shadow:inset 2px 2px 5px #0008,0 2px 0 #05060b}.btn.primary{background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 90%,white),var(--accent2));color:#10101b;border-color:#ffffff45}.btn.ghost{background:#ffffff06}.hero-visual{position:relative;max-width:430px;margin:auto}.hero-visual:before{content:"";position:absolute;inset:12% -7% -5% 12%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:48% 48% 18px 18px;transform:rotate(5deg);animation:float 7s ease-in-out infinite}.hero-visual img{position:relative;width:100%;max-height:500px;object-fit:cover;border-radius:48% 48% 18px 18px;border:1px solid #ffffff24;box-shadow:0 35px 100px #0009;mask-image:linear-gradient(#000 82%,transparent 100%)}section{padding:76px 0;border-top:1px solid var(--line)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:32px}.section-head p{max-width:430px;color:var(--muted);font-size:14px;margin:0}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,#171b2a,#10121d);padding:24px;transition:transform .3s,border-color .3s,background .3s}.card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 55%,transparent);background:linear-gradient(145deg,#1c2032,#11131f)}.card .symbol{font:28px var(--display);color:var(--accent);font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}.card h3{margin:16px 0 8px}.card p{font-size:13px;color:var(--muted);margin:0}.tag{display:inline-flex;font:10px var(--mono);padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--accent);margin:0 5px 5px 0}.gallery{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:14px}.shot{margin:0}.shot button{display:block;width:100%;height:320px;border:1px solid var(--line);padding:0;border-radius:16px;overflow:hidden;background:var(--panel);cursor:zoom-in}.shot img{width:100%;height:100%;object-fit:cover;transition:transform .55s}.shot button:hover img{transform:scale(1.055)}figcaption{padding:12px 3px;color:var(--accent);font-size:12px}.lightbox{position:fixed;inset:0;background:#03040af2;z-index:50;display:grid;place-items:center;padding:20px}.lightbox[hidden]{display:none}.lightbox img{max-height:82vh;max-width:92vw;border-radius:12px}.lightbox .btn{position:absolute;top:20px;right:20px}.contact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.contact{display:block;text-decoration:none;padding:19px;border:1px solid var(--line);border-radius:15px;background:#ffffff05;transition:transform .2s,border-color .2s}.contact:hover{transform:translateY(-4px);border-color:var(--accent)}.contact strong{display:block;margin:8px 0 2px;font:600 14px var(--display)}.contact span{display:block;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.footer{padding:34px 0 45px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}.footrow{display:flex;justify-content:space-between;gap:25px;align-items:flex-start}.footbrand{font:700 19px var(--display);color:var(--text)}.footer p{margin:4px 0}.footer .right{text-align:right}.project{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px}.project-status{display:inline-block;font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;border:1px solid #d9b66b55;color:#e5c982;border-radius:999px;padding:6px 10px}.oasis-page{--accent:#e45d68;--accent2:#2e5ca8}.oasis-page:before{background:radial-gradient(ellipse at 15% 5%,#c91e3535,transparent 40%),radial-gradient(ellipse at 90% 40%,#2858a544,transparent 40%),linear-gradient(145deg,#080910,#111424 60%,#090a12)}.oasis-page .hero-visual:before{border-color:#cf354a77}.oasis-page .btn.primary{background:linear-gradient(145deg,#f0e9e7,#d84d60);color:#14121a}.oasis-page .eyebrow,.oasis-page .accent{color:#ef6674}.oasis-page .card:hover{border-color:#e45d6877}
-@keyframes float{0%,100%{transform:rotate(5deg) translateY(0)}50%{transform:rotate(2deg) translateY(-12px)}}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}.reveal{animation:rise .7s both}.reveal:nth-child(2){animation-delay:.08s}.reveal:nth-child(3){animation-delay:.16s}
-@media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:35px}.hero-visual{max-width:360px}.section-head{display:block}.section-head p{margin-top:12px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery{grid-template-columns:1fr 1fr}.shot:first-child{grid-column:span 2}.shot button{height:260px}.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.wrap{width:calc(100% - 28px)}.navrow{padding:12px 0;align-items:flex-start;flex-direction:column;gap:8px}nav{width:100%;gap:2px}nav a{font-size:9px;padding:7px 8px}.hero{padding:55px 0 65px}h1{font-size:clamp(3.2rem,16vw,5rem)}section{padding:55px 0}.cards{grid-template-columns:1fr}.gallery{gap:8px}.shot button{height:210px;border-radius:12px}.contact-grid{gap:8px}.contact{padding:14px}.footrow{flex-direction:column}.footer .right{text-align:left}.project{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-
-@media(max-width:720px){
- .wrap{width:min(100% - 32px,1100px)}
- .navrow{min-height:64px;position:relative}
- .nav-toggle{display:flex!important;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#24283a,#10121c);color:var(--text);font:700 20px var(--mono);box-shadow:inset 1px 1px #ffffff20,0 3px 0 #03040a;cursor:pointer}
- nav{display:none;position:fixed;z-index:60;right:0;top:0;height:100dvh;width:min(82vw,320px);padding:90px 22px 24px;background:#0c0e18f7;border-left:1px solid var(--line);box-shadow:-24px 0 70px #0009;flex-direction:column;align-items:stretch;gap:8px}
- nav.open{display:flex;animation:slideIn .25s ease-out}
- nav a{font:600 12px var(--mono);padding:15px;border-radius:12px}
- .nav-scrim{display:none;position:fixed;inset:0;background:#0009;z-index:55}
- .nav-scrim.open{display:block}
- .hero{padding:65px 0 60px}
- .hero-grid{grid-template-columns:1fr;gap:28px}
- .hero-visual{width:min(78%,340px)}
- h1{font-size:clamp(3rem,15vw,5rem);letter-spacing:-.06em}
- h2{font-size:clamp(2rem,9vw,3rem)}
- section{padding:48px 0}
- .cards,.gallery{grid-template-columns:1fr}
- .contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .shot button{height:260px}
- .project{grid-template-columns:1fr}
- .project .btn{width:100%}
- .footrow{flex-direction:column}
- .footer .right{text-align:left}
- #board{gap:3px!important}
- #board button{min-width:0!important;padding:0!important;font-size:clamp(14px,5vw,24px)!important;aspect-ratio:1}
-}
-@keyframes slideIn{from{transform:translateX(22px);opacity:.5}to{transform:translateX(0);opacity:1}}
-.nav-toggle{display:none}
-.small,.eyebrow,.tag,nav a,figcaption,.footer,.contact span{font-family:'Montserrat',sans-serif}
-</style></head><body class="">
-<header class="top"><div class="wrap navrow"><a class="brand" href="index.html">northling<span>.</span></a><button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button><nav aria-label="Основная навигация"><a href="index.html">Главная</a><a href="arts.html" aria-current="page">Арты</a><a href="oasis.html">Oasis</a><a href="webdev.html">Web dev</a></nav></div></header><div class="nav-scrim" aria-hidden="true"></div>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090a12">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Арты — Норт, Ноэль, галерея и мини-игра на сайте northling.">
+<meta property="og:title" content="Арты · northling">
+<meta property="og:description" content="Арты — Норт, Ноэль, галерея и мини-игра на сайте northling.">
+<meta property="og:image" content="img/night.jpg">
+<title>Арты · northling</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Onest:wght@400..800&family=Unbounded:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+<symbol id="i-cat" viewBox="0 0 24 24"><path d="M4 4.5 9 8h6l5-3.5V13a8 8 0 0 1-16 0z"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/><path d="M11 16.2h2"/></symbol>
+<symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5S4.5 16 4.5 10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 6-7.5 10.5-7.5 10.5z"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2c.7 5.6 4.4 9.3 10 10-5.6.7-9.3 4.4-10 10-.7-5.6-4.4-9.3-10-10 5.6-.7 9.3-4.4 10-10z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-note" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+<symbol id="i-brush" viewBox="0 0 24 24"><path d="M4 20c4.2 0 6.2-2 6.2-5l-2-2c-3.2 0-4.2 3-4.2 7zM9 13 19.5 3 21 4.5 11 15"/></symbol>
+<symbol id="i-discord" viewBox="0 0 24 24"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="9" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="11" r="1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 8 8 6 8-6"/></symbol>
+<symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4 3 11l6 2.2L11 20l3-4 5 3.5z"/><path d="m9 13.2 7-5"/></symbol>
+<symbol id="i-channel" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L15 19V5L7.5 9.5z"/><path d="M18.5 9a4 4 0 0 1 0 6"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+<symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+</defs></svg>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+<header class="top"><div class="wrap"><div class="pill">
+<a class="brand" href="index.html">northling<span>.</span></a>
+<button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+<nav id="menu" aria-label="Основная навигация"><a href="index.html">Главная</a><a href="arts.html" aria-current="page">Арты</a><a href="oasis.html">Oasis</a><a href="webdev.html">Web dev</a></nav>
+</div></div></header>
 <main>
-<section class="hero" style="border:0"><div class="wrap hero-grid"><div><div class="eyebrow">персонажи · визуальные истории</div><h1>Личный<br><span class="accent">артбук.</span></h1><p class="lead">Норт, Ноэль и арты без лишних объяснений.</p><p class="muted small">Персонажи мои. Арты тоже.</p></div><div class="hero-visual"><img src="img/snow.jpg" alt="Два персонажа под снегом"></div></div></section>
-<section><div class="wrap"><div class="section-head"><div><div class="eyebrow">главные герои</div><h2>Норт и Ноэль</h2></div><p>Два персонажа, два характера и достаточно поводов друг друга подъёбывать.</p></div><div class="cards"><article class="card"><span class="symbol">😈</span><h3>Норт</h3><p>Котолис, 171 см. Шумный, резкий на подъём и местами полный хаос. Скучно рядом с ним не бывает — по крайней мере, тихо точно не будет.</p><p style="margin-top:15px"><span class="tag">лавандовый</span><span class="tag">энергия</span><span class="tag">хаос</span></p></article><article class="card"><span class="symbol">🐆</span><h3>Ноэль</h3><p>Снежный барс, 171 см. Чуть спокойнее и собраннее. Обычно держит ситуацию под контролем — пока Норт не вмешался.</p><p style="margin-top:15px"><span class="tag">снег</span><span class="tag">терпение</span><span class="tag">забота</span></p></article><article class="card"><span class="symbol">⚡</span><h3>Их динамика</h3><p>Подколы, споры и совместный бардак. Ладят лучше, чем готовы признать.</p><p style="margin-top:15px"><span class="tag">вместе</span><span class="tag">ночь</span></p></article></div></div></section>
-<section><div class="wrap"><div class="section-head"><div><div class="eyebrow">галерея</div><h2>Моменты</h2></div><p>Жми на арт — откроется крупнее.</p></div><div class="gallery"><figure class="shot"><button data-full="img/snow.jpg" data-alt="Норт и Ноэль под снегом" aria-label="Открыть арт: снег"><img src="img/snow.jpg" alt="Норт и Ноэль под снегом" loading="lazy"></button><figcaption>Снег у дома</figcaption></figure><figure class="shot"><button data-full="img/night.jpg" data-alt="Ночной портрет" aria-label="Открыть ночной портрет"><img src="img/night.jpg" alt="Ночной портрет" loading="lazy"></button><figcaption>После полуночи</figcaption></figure><figure class="shot"><button data-full="img/bed.jpg" data-alt="Норт и Ноэль отдыхают" aria-label="Открыть арт: 04:04"><img src="img/bed.jpg" alt="Норт и Ноэль отдыхают" loading="lazy"></button><figcaption>04:04</figcaption></figure></div></div></section>
-<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр арта"><button class="btn ghost" type="button">Закрыть ✕</button><img src="" alt=""></div>
 
-<section id="game"><div class="wrap"><div class="section-head"><div><div class="eyebrow">мини-игра · match three</div><h2>Норт против Ноэля</h2></div><p>Меняй местами соседние плитки, собирай три одинаковых символа и набирай очки.</p></div><div class="card"><div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:18px"><strong>Очки: <span id="score">0</span></strong><span class="muted small" id="gameStatus" aria-live="polite">Выбери плитку, затем соседнюю.</span><button class="btn primary" id="newGame" type="button">Новая игра ↻</button></div><div id="board" role="grid" aria-label="Поле игры" style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;max-width:520px;margin:auto"></div><p class="muted small" style="margin:18px 0 0">😈 Норт · 🐆 Ноэль · 🌙 Луна · ❤️ Сердце</p></div></div></section>
-<script>
-(()=>{const board=document.querySelector('#board'),scoreEl=document.querySelector('#score'),status=document.querySelector('#gameStatus');if(!board)return;const N=8,icons=['😈','🐆','🌙','❤️'];let cells=[],selected=-1,score=0,busy=false;const rand=()=>Math.floor(Math.random()*icons.length),adj=(a,b)=>Math.abs(Math.floor(a/N)-Math.floor(b/N))+Math.abs(a%N-b%N)===1;
-function newBoard(){cells=[];for(let i=0;i<N*N;i++){let t;do{t=rand()}while((i%N>1&&cells[i-1]===t&&cells[i-2]===t)||(i>=2*N&&cells[i-N]===t&&cells[i-2*N]===t));cells.push(t)}}
-function matches(){const found=new Set();for(let r=0;r<N;r++)for(let c=0;c<N;c++){const i=r*N+c,t=cells[i];let len=1;while(c+len<N&&cells[i+len]===t)len++;if(len>=3)for(let k=0;k<len;k++)found.add(i+k);len=1;while(r+len<N&&cells[i+len*N]===t)len++;if(len>=3)for(let k=0;k<len;k++)found.add(i+k*N)}return [...found]}
-function render(){board.innerHTML='';cells.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.className='btn';b.style.cssText='aspect-ratio:1;min-width:0;padding:0;border-radius:10px;font-size:clamp(16px,3vw,27px);font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;background:'+(selected===i?'linear-gradient(145deg,var(--accent),var(--accent2))':'linear-gradient(145deg,#252a40,#151827)');b.textContent=icons[t];b.setAttribute('role','gridcell');b.setAttribute('aria-label',icons[t]);b.setAttribute('aria-pressed',String(selected===i));b.addEventListener('click',()=>pick(i));board.appendChild(b)});scoreEl.textContent=score}
-function settle(){let found=matches();if(!found.length){busy=false;render();return}score+=found.length*10;found.forEach(i=>cells[i]=-1);for(let c=0;c<N;c++){let stack=[];for(let r=N-1;r>=0;r--)if(cells[r*N+c]>=0)stack.push(cells[r*N+c]);while(stack.length<N)stack.push(rand());for(let r=N-1;r>=0;r--)cells[r*N+c]=stack[N-1-r]}render();setTimeout(settle,140)}
-function pick(i){if(busy)return;if(selected<0){selected=i;status.textContent='Теперь нажми на соседнюю плитку.';render();return}if(selected===i){selected=-1;render();return}if(!adj(selected,i)){selected=i;status.textContent='Нужна соседняя плитка.';render();return}const a=selected;selected=-1;[cells[a],cells[i]]=[cells[i],cells[a]];if(!matches().length){[cells[a],cells[i]]=[cells[i],cells[a]];status.textContent='Совпадения нет — попробуй другой ход.';render();return}busy=true;status.textContent='Есть совпадение!';render();settle()}
-function start(){score=0;selected=-1;busy=false;newBoard();status.textContent='Выбери плитку, затем соседнюю.';render()}document.querySelector('#newGame').addEventListener('click',start);start()})();
-</script>
+<section class="hero"><div class="wrap hero-grid">
+<div class="hero-text">
+<span class="eyebrow pillish">персонажи · визуальные истории</span>
+<h1>Личный<br><span class="grad">артбук.</span></h1>
+<p class="lead">Норт, Ноэль и арты без лишних объяснений.</p>
+<p class="muted small">Персонажи мои. Арты тоже.</p>
+<div class="actions"><a class="btn primary" href="#gallery">В галерею <svg class="i " aria-hidden="true"><use href="#i-down"/></svg></a><a class="btn" href="#game">Сыграть <svg class="i " aria-hidden="true"><use href="#i-play"/></svg></a></div>
+</div>
+<div class="hero-visual">
+<div class="frame"><img src="img/snow.jpg" alt="Норт и Ноэль под снегом" style="object-position:50% 32%" fetchpriority="high"></div>
+<span class="float-chip a"><svg class="i " aria-hidden="true"><use href="#i-heart"/></svg> вместе</span>
+<span class="float-chip b"><svg class="i " aria-hidden="true"><use href="#i-snow"/></svg> снег</span>
+</div>
+</div></section>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="marquee-group"><span>northling</span><span>Норт</span><span>Ноэль</span><span>арты</span><span>britpop</span><span>90s rock</span><span>Oasis</span><span>web dev</span></div><div class="marquee-group"><span>northling</span><span>Норт</span><span>Ноэль</span><span>арты</span><span>britpop</span><span>90s rock</span><span>Oasis</span><span>web dev</span></div></div></div>
+<section class="sec"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">главные герои</span><h2>Норт и Ноэль</h2></div><p>Два персонажа, два характера и достаточно поводов друг друга подъёбывать.</p></div>
+<div class="chars">
+<article class="card char rv"><div class="top-row"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-cat"/></svg></span><div><h3>Норт</h3><p class="sub">Котолис · 19 лет</p></div></div>
+<p>Взрывной и весёлый. Шумный, резкий на подъём и местами полный хаос: скучно рядом с ним не бывает — по крайней мере, тихо точно не будет. И да, главный милашка этой пары.</p>
+<div class="stats"><div class="stat"><b>171</b><span>см</span></div><div class="stat"><b>19</b><span>лет</span></div><div class="stat"><b>100%</b><span>энергии</span></div></div>
+<div class="tags"><span class="tag">лавандовый</span><span class="tag">энергия</span><span class="tag">хаос</span><span class="tag">милашка</span></div></article>
+<article class="card char rv"><div class="top-row"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-snow"/></svg></span><div><h3>Ноэль</h3><p class="sub">Снежный барс · 19 лет</p></div></div>
+<p>Умнее, серьёзнее и взрослее. Чуть спокойнее и собраннее — обычно держит ситуацию под контролем, пока Норт не вмешался.</p>
+<div class="stats"><div class="stat"><b>171</b><span>см</span></div><div class="stat"><b>19</b><span>лет</span></div><div class="stat"><b>100%</b><span>выдержки</span></div></div>
+<div class="tags"><span class="tag">снег</span><span class="tag">терпение</span><span class="tag">забота</span><span class="tag">ум</span></div></article>
+</div>
+<article class="card duo rv"><span class="ico"><svg class="i " aria-hidden="true"><use href="#i-heart"/></svg></span><div><h3>Их динамика</h3><p>Подколы, споры и совместный бардак. Ладят лучше, чем готовы признать, — и любят друг друга, просто каждый по-своему.</p></div></article>
+</div></section>
+<section class="sec" id="gallery"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">галерея</span><h2>Моменты</h2></div><p>Жми на арт — откроется крупнее. Листать можно стрелками.</p></div>
+<div class="gallery">
+<figure class="shot rv"><button type="button" data-full="img/snow.jpg" data-alt="Снег у дома" aria-label="Открыть арт: снег у дома"><img src="img/snow.jpg" alt="Норт и Ноэль под снегом" loading="lazy" style="object-position:50% 35%"><span class="cap">Снег у дома</span></button></figure>
+<figure class="shot rv"><button type="button" data-full="img/night.jpg" data-alt="После полуночи" aria-label="Открыть арт: после полуночи"><img src="img/night.jpg" alt="Ночной портрет" loading="lazy" style="object-position:62% 30%"><span class="cap">После полуночи</span></button></figure>
+<figure class="shot rv"><button type="button" data-full="img/bed.jpg" data-alt="04:04" aria-label="Открыть арт: 04:04"><img src="img/bed.jpg" alt="Норт и Ноэль отдыхают" loading="lazy"><span class="cap">04:04</span></button></figure>
+</div></div></section>
+<div class="lb" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр арта">
+<button class="btn close" type="button" aria-label="Закрыть"><svg class="i " aria-hidden="true"><use href="#i-close"/></svg></button>
+<button class="btn prev" type="button" aria-label="Предыдущий арт"><svg class="i " aria-hidden="true"><use href="#i-prev"/></svg></button>
+<button class="btn next" type="button" aria-label="Следующий арт"><svg class="i " aria-hidden="true"><use href="#i-next"/></svg></button>
+<figure><img src="" alt=""><figcaption></figcaption></figure>
+</div>
+<section class="sec" id="game"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">мини-игра · match three</span><h2>Норт против Ноэля</h2></div><p>Меняй местами соседние плитки, собирай три одинаковых символа и набирай очки.</p></div>
+<div class="card game rv">
+<div class="game-bar">
+<div class="score-box"><div class="score"><span>очки</span><b id="score">0</b></div><div class="score"><span>рекорд</span><b id="best">0</b></div></div>
+<span class="muted small" id="gameStatus" aria-live="polite">Выбери плитку, затем соседнюю.</span>
+<button class="btn primary" id="newGame" type="button">Новая игра ↻</button>
+</div>
+<div id="board" aria-label="Поле игры"></div>
+<p class="legend"><span><svg class="i " aria-hidden="true"><use href="#i-cat"/></svg> Норт</span><span><svg class="i " aria-hidden="true"><use href="#i-snow"/></svg> Ноэль</span><span><svg class="i " aria-hidden="true"><use href="#i-moon"/></svg> Луна</span><span><svg class="i " aria-hidden="true"><use href="#i-heart"/></svg> Сердце</span></p>
+</div></div></section>
+
 </main>
-<footer class="footer"><div class="wrap footrow"><div><div class="footbrand">northling<span class="accent">.</span></div><p>Личный сайт и набор учебных экспериментов.</p><p>Собрано с помощью CODEX, вайб-кодинга и ручной доводки.</p></div><div class="right"><p>© 2026 northling. Все права на персонажей и материалы принадлежат их автору.</p><p>HTML · CSS · JavaScript · пока что студенческий проект.</p></div></div></footer>
-<script>
-(()=>{const toggle=document.querySelector('.nav-toggle'),nav=document.querySelector('nav'),scrim=document.querySelector('.nav-scrim');if(toggle&&nav&&scrim){const close=()=>{nav.classList.remove('open');scrim.classList.remove('open');toggle.setAttribute('aria-expanded','false')};toggle.addEventListener('click',()=>{const open=!nav.classList.contains('open');nav.classList.toggle('open',open);scrim.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open))});scrim.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close))}const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.card,.shot,.contact,.project').forEach(el=>io.observe(el));
-const modal=document.querySelector('#lightbox');if(modal){const image=modal.querySelector('img');let last=null;document.querySelectorAll('[data-full]').forEach(b=>b.addEventListener('click',()=>{last=b;image.src=b.dataset.full;image.alt=b.dataset.alt||'';modal.hidden=false;modal.querySelector('button').focus()}));const close=()=>{modal.hidden=true;image.src='';if(last)last.focus()};modal.querySelector('button').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close()})}
-})();
-</script>
+<footer class="footer"><div class="wrap footrow">
+<div><div class="footbrand">northling<span>.</span></div><p>Личный сайт northling.</p><p>Собрано с помощью CODEX, вайб-кодинга и ручной доводки.</p></div>
+<div class="right"><p>© 2026 northling. Все права на персонажей и материалы принадлежат их автору.</p><p class="mono">HTML · CSS · JavaScript</p></div>
+</div></footer>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="js/main.js"></script>
+<script src="js/game.js"></script>
 </body></html>

@@ -202,4 +202,4 @@ collections:
           - label: "Алмазики — редкие песни"
             name: "deep_cuts"
             widget: "list"
-            field: { label: "Название песни", widget: "string" }
+            field: { label: "Название песни", name: "title", widget: "string" }

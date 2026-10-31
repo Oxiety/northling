@@ -23,7 +23,10 @@
         const placeLabel = type === "arts" ? "Место / контекст" : "Место съёмки";
         if (item.date) details.push(`<span><b>${dateLabel}</b>${esc(item.date)}</span>`);
         if (item.location) details.push(`<span><b>${placeLabel}</b>${esc(item.location)}</span>`);
-        const caption = esc(item.caption || [item.title || "", item.date ? `${dateLabel}: ${item.date}` : "", item.location ? `${placeLabel}: ${item.location}` : ""].filter(Boolean).join(" · "));
+        const meta = [item.date ? `${dateLabel}: ${item.date}` : "", item.location ? `${placeLabel}: ${item.location}` : ""].filter(Boolean).join(" · ");
+        // В лайтбоксе показываем подпись, описание (поле alt) и дату/место; точные дубликаты убираем.
+        const captionParts = [item.caption, item.alt, meta].filter(Boolean);
+        const caption = esc([...new Set(captionParts)].join(" — ") || item.title || "");
         return `<figure class="shot rv"><button type="button" data-full="${image}" data-alt="${alt}" data-caption="${caption}" aria-label="Открыть: ${title}"><img src="${image}" alt="${alt}" loading="lazy"><span class="cap">${title}</span></button>${details.length ? `<figcaption class="shot-meta">${details.join("")}</figcaption>` : ""}</figure>`;
       }).join("");
       gallery.dispatchEvent(new CustomEvent("gallery:updated", { bubbles: true }));
